@@ -1,0 +1,64 @@
+
+.index.data-v-788a14f2{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.totop.data-v-788a14f2{/*回到顶部 */
+	width: 50px;
+	height: 50px;
+	background:#4588aa;
+	border-radius: 50%;
+	font-size: 26px;
+	position: fixed;
+	bottom:40px;
+	opacity: 0;
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
+	right:10px;
+	line-height: 50px;
+	text-align: center;
+	color:#FFFFFF;
+	z-index: 2222;
+}
+/* 轮播图 */
+.swiper.data-v-788a14f2{
+	width: 100%;
+	height: 100%;
+	padding-top:40px;
+	padding-bottom: 10px;
+}
+.swiper-item.data-v-788a14f2{
+	width: 100%;
+	height: 100%;
+}
+.swiper image.data-v-788a14f2{
+	height: 100%;
+	width: 100%;
+}
+/* 排序 */
+.time-sort.data-v-788a14f2{
+	font-size: 14px;
+}
+.time-sort text.sort.data-v-788a14f2{
+	background: #5BA08C;
+	color: #fff;
+}
+.time-sort text.data-v-788a14f2{
+	margin:10px 10px 5px 0;
+	line-height: 20px;
+	border: 1px solid #5BA08C;
+	float: right;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+.loadingText.data-v-788a14f2{
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #CCCCCC;
+}
+

@@ -1,0 +1,35 @@
+
+.cardInfo.data-v-de2c1218{
+	padding:0 10px;
+}
+.cardInfo .card_content view.data-v-de2c1218{
+	margin:30px 0;
+}
+.infoBtn button.data-v-de2c1218{
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 5px #ccc;
+	        box-shadow: 0px 0px 5px #ccc;
+	margin:40px 0;
+	color:#346680;
+}
+.infoBtn button.warn.data-v-de2c1218{
+	background: #BF0000;
+	color: #fff;
+}
+.relation.data-v-de2c1218{
+	margin-left:20px;
+	position: relative;
+}
+.relation .cutbtn.data-v-de2c1218{
+	border-radius: 5px;
+	font-size: 14px;
+	border: 1px solid #4588aa;
+	text-align: center;
+	line-height: 20px;
+	padding:4px 8px;
+	width: 50px;
+	position: absolute;
+	right: 5px;
+	top:2px;
+}
+

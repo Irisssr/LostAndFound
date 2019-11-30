@@ -1,0 +1,112 @@
+
+page{
+	background: -webkit-gradient(linear,left top, left bottom,from(#4588aa),to(#57bbae));
+	background: -o-linear-gradient(top,#4588aa,#57bbae);
+	background: linear-gradient(top,#4588aa,#57bbae);
+}
+
+
+.login.data-v-cd76c2bc{
+	padding: 0 30px;
+	position: relative;
+}
+.logo-move.data-v-cd76c2bc{
+	width: 100px;
+	height: 100px;
+	margin: 20px auto;
+	-webkit-animation: logomove-data-v-cd76c2bc 5s ease-in-out infinite;
+	        animation: logomove-data-v-cd76c2bc 5s ease-in-out infinite;
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+	border-radius: 50%;
+}
+@-webkit-keyframes logomove-data-v-cd76c2bc{
+0%{
+		-webkit-transform: rotateY(0deg);
+		        transform: rotateY(0deg);
+}
+50%{
+		-webkit-transform: rotateY(180deg);
+		        transform: rotateY(180deg);
+}
+0%{
+		-webkit-transform: rotateY(0deg);
+		        transform: rotateY(0deg);
+}
+}
+@keyframes logomove-data-v-cd76c2bc{
+0%{
+		-webkit-transform: rotateY(0deg);
+		        transform: rotateY(0deg);
+}
+50%{
+		-webkit-transform: rotateY(180deg);
+		        transform: rotateY(180deg);
+}
+0%{
+		-webkit-transform: rotateY(0deg);
+		        transform: rotateY(0deg);
+}
+}
+.logo-move image.data-v-cd76c2bc{
+	width: 100%;
+	height: 100%;
+}
+.posre.data-v-cd76c2bc{
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+	position: relative;
+	color: #fff;
+}
+.posab1.data-v-cd76c2bc,.posab2.data-v-cd76c2bc{
+	position: absolute;
+	width: 100%;
+	top:0;
+	left:0;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	z-index: 1;
+}
+.posab2.data-v-cd76c2bc{
+	z-index: 2;
+	-webkit-transform: rotateY(-180deg);
+	        transform: rotateY(-180deg);
+}
+.login .login-box.data-v-cd76c2bc{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	color: #fff;
+	text-align: center;
+	line-height: 80px;
+	margin-top:50px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 5px #8ff1ee;
+	        box-shadow: 0px 0px 5px #8ff1ee;
+	padding:10px 20px;
+}
+.login .stuNum input.data-v-cd76c2bc{
+	border-bottom:1px solid #fff;
+	color: #fff;
+}
+.login button.data-v-cd76c2bc{
+	margin-top:50px;
+	color: #000;
+}
+

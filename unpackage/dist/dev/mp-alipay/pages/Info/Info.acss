@@ -1,0 +1,189 @@
+
+canvas.data-v-69628721{
+	width: 300px;
+	position: absolute;
+	left:50%;
+	margin-left: -150px;
+	top:10px;
+	height: 500px;
+	z-index: 9999;
+}
+.bottom.data-v-69628721{
+	position: fixed;
+	bottom:0;
+	background: #fff;
+	height: 50px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	width: 100%;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	z-index: 999;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.bottom view.data-v-69628721{
+	height: 100%;
+	-webkit-box-flex:1;
+	-webkit-flex:1;
+	    -ms-flex:1;
+	        flex:1;
+	text-align: center;
+	line-height: 40px;
+	border-right:1px solid #4588aa;
+}
+.mask.data-v-69628721{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,0.5);
+	z-index: 999;
+}
+.info.data-v-69628721{
+	width: 100%;
+	height: 100%;
+}
+.spread.data-v-69628721{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: -webkit-gradient(linear,left top, right top,from(#b5e1ff),to(#4588aa));
+	background: -o-linear-gradient(left,#b5e1ff,#4588aa);
+	background: linear-gradient(to right,#b5e1ff,#4588aa);
+	border-radius: 25px;
+	position: absolute;
+	bottom:20px;
+	left:50%;
+	margin-left: -50px;
+}
+.share_btn.data-v-69628721{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	z-index: 111;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-size:16px;
+}
+.share_btn view.data-v-69628721{
+	width: 100%;
+	height: 100%;
+	margin:0 5px;
+	line-height: 60px;
+	text-align: center;
+}
+.avatar.data-v-69628721,
+.content.data-v-69628721,
+.imgList.data-v-69628721{
+	font-size: 16px;
+	width: 100%;
+	-webkit-box-shadow: 2px 2px 5px #ccc;
+	        box-shadow: 2px 2px 5px #ccc;
+	margin-bottom:10px;
+	padding:5px;
+}
+.avatar.data-v-69628721{
+	height: 50px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+}
+.avatar_left.data-v-69628721{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.avatar_left image.data-v-69628721{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.avatar_right.data-v-69628721{
+	font-size: 16px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	padding-left:10px;
+}
+.avatar_right .avatar_time.data-v-69628721{
+	font-size: 12px;
+	color:#828282;
+	margin-top:2px;
+}
+.title.data-v-69628721,.text.data-v-69628721,.relation.data-v-69628721{
+	padding:10px 10px;
+	border-bottom:1px solid #ccc;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	overflow: auto;
+}
+.relation.data-v-69628721{
+	position: relative;
+}
+.relation .cutbtn.data-v-69628721{
+	border-radius: 10px;
+	font-size: 12px;
+	border: 1px solid #4588aa;
+	text-align: center;
+	line-height: 20px;
+	padding:2px 5px;
+	width: 50px;
+	position: absolute;
+	right: 25px;
+	top:8px;
+}
+.cutbtn ._span.data-v-69628721{
+	margin:0 2px;
+}
+

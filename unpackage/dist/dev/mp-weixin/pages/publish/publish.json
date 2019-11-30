@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "信息发布",
+  "navigationBarBackgroundColor": "#4588aa",
+  "usingComponents": {
+    "publish-lost": "/components/publish/publishLost",
+    "publish-found": "/components/publish/publishFound",
+    "tabar-head": "/components/tabarHead"
+  }
+}

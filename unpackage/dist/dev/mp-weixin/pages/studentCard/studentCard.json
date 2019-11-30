@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "学生卡",
+  "navigationBarBackgroundColor": "#4588aa",
+  "usingComponents": {
+    "title-head": "/components/tabarHead",
+    "lost-card": "/components/card/lostCard",
+    "found-card": "/components/card/foundCard"
+  }
+}

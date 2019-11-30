@@ -1,0 +1,38 @@
+
+.item.data-v-9b8877dc,
+.item-none.data-v-9b8877dc{
+	margin-top:40px;
+}
+.item-none.data-v-9b8877dc{
+	text-align: center;
+	font-size: 16px;
+	color:#828282;
+}
+.time-sort.data-v-9b8877dc{
+	font-size: 14px;
+}
+.time-sort text.sort.data-v-9b8877dc{
+	background: #5BA08C;
+	color: #fff;
+}
+.time-sort text.data-v-9b8877dc{
+	margin:10px 10px 5px 0;
+	line-height: 20px;
+	border: 1px solid #5BA08C;
+	float: right;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+/* 排序 */
+.time-sort.data-v-9b8877dc{
+	font-size: 14px;
+}
+.time-sort text.data-v-9b8877dc{
+	margin:10px 10px 5px 0;
+	line-height: 20px;
+	border: 1px solid #5BA08C;
+	float: right;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+

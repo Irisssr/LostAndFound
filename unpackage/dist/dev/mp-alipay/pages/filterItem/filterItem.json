@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "搜索结果",
+  "pullRefresh": true,
+  "titleBarColor": "#4588aa",
+  "usingComponents": {
+    "search": "/components/index/search",
+    "list-item": "/components/listItem"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "关于我们",
+  "navigationBarBackgroundColor": "#4588aa",
+  "usingComponents": {
+    "steps": "/components/user/step"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "pub-classify": "/components/publish/pubClassify",
+    "relation": "/components/publish/relationType"
+  },
+  "component": true
+}

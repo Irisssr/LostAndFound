@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索结果",
+  "navigationBarBackgroundColor": "#4588aa",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "search": "/components/index/search",
+    "list-item": "/components/listItem"
+  }
+}

@@ -1,0 +1,23 @@
+
+.item.data-v-6eec4e6c,
+.item-none.data-v-6eec4e6c{
+	margin-top:40px;
+}
+.item-none.data-v-6eec4e6c{
+	text-align: center;
+	font-size: 16px;
+	color:#828282;
+}
+/* 排序 */
+.time-sort.data-v-6eec4e6c{
+	font-size: 14px;
+}
+.time-sort text.data-v-6eec4e6c{
+	margin:10px 10px 5px 0;
+	line-height: 20px;
+	border: 1px solid #5BA08C;
+	float: right;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+

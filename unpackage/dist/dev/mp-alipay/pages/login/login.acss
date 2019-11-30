@@ -1,0 +1,48 @@
+
+.login.data-v-d3996316{
+	padding: 0 30px;
+	position: relative;
+}
+.posre.data-v-d3996316{
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+	position: relative;
+}
+.posab1.data-v-d3996316,.posab2.data-v-d3996316{
+	position: absolute;
+	width: 100%;
+	top:0;
+	left:0;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	z-index: 1;
+}
+.posab2.data-v-d3996316{
+	z-index: 2;
+	-webkit-transform: rotateY(-180deg);
+	        transform: rotateY(-180deg);
+}
+.login .login-box.data-v-d3996316{
+	font-size: 14px;
+	display: block;
+	text-align: center;
+	line-height: 80px;
+	margin-top:50px;
+	height: 80px;
+	border-radius: 10px;
+	background: #e0dde0;
+	padding:0 20px;
+}
+.login .stuNum input.data-v-d3996316{
+	border-bottom:1px solid #333;
+	font-size: 16px;
+	height: 50px;
+}
+.login button.data-v-d3996316{
+	margin-top:50px;
+	background: #4588aa;
+	color: #fff;
+}
+

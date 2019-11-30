@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "我的发布",
+  "pullRefresh": true,
+  "titleBarColor": "#4588aa",
+  "usingComponents": {
+    "type-tabbar": "/components/user/typetabbar",
+    "good-card": "/components/user/goodCard"
+  }
+}
