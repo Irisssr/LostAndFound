@@ -1,23 +1,21 @@
 <template>
-	<view>
-		<view class="mypublish" @tap.stop="toInfo({id:goodMsg.id,status:goodMsg.goodStatus})">
-			<view class="myleft">
-				<image :src="'https://www.gongsir.club:8081/'+goodMsg.goodImage" mode="aspectFill"></image>
-				<view class="findtip" v-if="goodMsg.goodStatus!=='no'">已被认领</view>
+	<view class="mypublish" @tap.stop="toInfo({id:goodMsg.id,status:goodMsg.goodStatus})">
+		<view class="myleft">
+			<image :src="'https://www.gongsir.club:8081/'+goodMsg.goodImage" mode="aspectFill"></image>
+			<view class="findtip" v-if="goodMsg.goodStatus!=='no'">已被认领</view>
+		</view>
+		<view class="myright">
+			<view class="mytitle">{{ goodMsg.goodTitle}}</view>
+			<!-- <view class="findtext">已被学生{{goodMsg.goodStatus}}认领</view> -->
+			<view class="mybtn">
+				<view class="mytexts">{{ goodMsg.goodTexts}}</view>
+				<view class="delete" v-show="ismy" @tap.stop="remove(goodMsg.id)">删除</view>
 			</view>
-			<view class="myright">
-				<view class="mytitle">{{ goodMsg.goodTitle}}</view>
-				<!-- <view class="findtext">已被学生{{goodMsg.goodStatus}}认领</view> -->
-				<view class="mybtn">
-					<view class="mytexts">{{ goodMsg.goodTexts}}</view>
-					<view class="delete" v-show="ismy" @tap.stop="remove(goodMsg.id)">删除</view>
-				</view>
-				<view class="goodType type-lost" v-if="goodMsg.goodType==='lost'">
-					失物招领
-				</view>
-				<view class="goodType type-found" v-if="goodMsg.goodType==='found'">
-					寻物启事
-				</view>
+			<view class="goodType type-lost" v-if="goodMsg.goodType==='lost'">
+				失物招领
+			</view>
+			<view class="goodType type-found" v-if="goodMsg.goodType==='found'">
+				寻物启事
 			</view>
 		</view>
 	</view>
@@ -61,16 +59,27 @@
 	}
 </script>
 
+<style>
+	page{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
 <style scoped>
 .mypublish{
-	height: 100px;
+	font-size: 16px;
 	width: 100%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	padding-left:5px;
-	box-shadow: 4px 0px 5px #ccc;
-	margin:8px 0;
+	border:1px solid #ccc;
+	box-shadow: 2px 2px 4px #C0C0C0;
+	margin:10px auto;
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding:2px 4px;
+	position: relative;
 }
 .myleft{
 	width: 90px;
@@ -100,7 +109,6 @@
 	margin-left:10px;
 	height: 100%;
 	overflow: hidden;
-	position: relative;
 	font-size: 16px;
 }
 .myright .mytitle{

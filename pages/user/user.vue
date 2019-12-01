@@ -1,25 +1,10 @@
 <template>
-	<!-- 用户 -->
 	<view>
-		<!-- 遮罩 -->
-		<view class="mask" v-show="isNum" @tap="isMask"></view>
 		<!-- 用户信息 -->
-		<view class="user">
-			<view class="userInfo">
-				<view class="user_avatar">
-					<img :src="userInfo.userHead">
-				</view>
-				<view class="user_name" v-show="userInfo.userName">{{userInfo.userName}}</view>
-				<view class="user_stunum" v-if="userInfo.stuNum"
-					@tap="editNum">
-					<span class="iconfont">&#xe62d;</span>
-					学号:{{userInfo.stuNum}}
-				</view>
-				<view class="user_stunum" v-else @tap="editNum">[请绑定学号]</view>
-			</view>
-		</view>
+		<UserHead :userhead="userInfo" ismy="true" @sendStu="getStuNum"></UserHead>
+		<view class="mask" v-show="ismask" @tap="isMask"></view>
 		<!-- 更新学号 -->
-		<view class="bindingStu" v-show="isNum">
+		<view class="bindingStu" v-show="ismask">
 			<input type="number" v-model="card_num" placeholder="请填写学号">
 			<button type="default" @tap="bindStuNum">确认更新</button>
 		</view>
@@ -35,7 +20,7 @@
 			</button>
 			<button class="listItem" @tap="toQun">
 				<span class="iconfont">&#xe694;</span>
-				<span>信息群号</span>
+				<span>信息qq群号</span>
 			</button>
 			<button class="listItem" open-type="share">
 				<span class="iconfont">&#xe8b0;</span>
@@ -47,10 +32,11 @@
 
 <script>
 	import { mapState,mapMutations} from 'vuex'
+	import UserHead from '@/components/user/userHead.vue'
 	export default {
 		data(){
 			return{
-				isNum:false,
+				ismask:false,
 				qqQun:'750503541',
 				card_num:'',
 				animationData:{}
@@ -62,10 +48,16 @@
 				sessionKey:state=>state.sessionKey
 			})
 		},
+		components:{
+			UserHead
+		},
 		methods: {
 			...mapMutations([
 				'getstuNum'
 			]),
+			getStuNum(data){
+				this.ismask=data.isNum;
+			},
 			toQun(){
 				uni.setClipboardData({
 					data:this.qqQun
@@ -88,10 +80,7 @@
 				})
 			},
 			isMask(){
-				this.isNum=false;
-			},
-			editNum(){
-				this.isNum=true;
+				this.ismask=false;
 			},
 			bindStuNum(){
 				let that=this;
@@ -112,7 +101,7 @@
 						title: res.msg
 					})
 					that.card_num='';
-					that.isNum=false;
+					that.ismask=false;
 				})
 			}
 		},
@@ -156,57 +145,40 @@
 <style>
 .mask{
 	position: absolute;
+	top:0;
+	left:0;
 	width: 100%;
 	height: 100%;
 	background: rgba(0,0,0,0.4);
-	top:0;
-	left:0;
-	z-index: 112;
+	z-index: 99;
 }
-.user{
+.bindingStu{//绑定几个学号弹框
+	position: fixed;
+	width: 300px;
 	height: 200px;
-	width: 100%;
-	position: relative;
-	background: linear-gradient(top,#4588aa,#57bbae);
-	overflow: hidden;
-	color: #fff;
-}
-.user .userInfo{
-	z-index: 55;
-	height: 100%;
-	width:100%;
-	position: absolute;
-	top:0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.userInfo .user_avatar{
-	width: 80px;
-	height: 80px;
-	border:3px solid #fff;
-	box-shadow: 0px 0px 8px #8ff1ee;
-	border-radius: 50%;
-}
-.userInfo .user_avatar img{
-	border-radius: 50%;
-	width: 100%;
-	height: 100%;
-}
-.user .user_name{
+	left:50%;
+	top:50%;
+	margin-left:-150px;
+	margin-top:-100px;
+	background: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	z-index: 100;
 	font-size: 16px;
-	text-align: center;
-	padding:5px 0;
 }
-.user .user_stunum{
-	font-size: 14px;
-	text-align: center;
-	padding:5px 0;
-	font-weight: 200;
+.bindingStu button{
+	box-shadow: 0px 0px 4px #4588aa;
+	margin:10px 0;
+	background: #fff;
 }
-.userList{
+.bindingStu input{
+	margin:30px 0;
+	padding: 5px 5px;
+	border-bottom: 1px solid #ccc;
+	font-size: 18px;
+}
+.userList{//列表
 	opacity: 0;
 	transform: translateY(90);
 	width: 90%;
@@ -224,6 +196,8 @@
 	height: var(--height);
 	line-height: var(--height);
 	text-align: left;
+	margin-top:10px;
+	background: #fff;
 }
 .userList .listItem span{
 	padding:0 5px;
@@ -231,31 +205,5 @@
 .listItem .iconfont{
 	font-size: 20px;
 	color: #3F536E;
-}
-.bindingStu{//绑定几个学号弹框
-	position: fixed;
-	width: 300px;
-	height: 200px;
-	left:50%;
-	top:50%;
-	margin-left:-150px;
-	margin-top:-100px;
-	background: #fff;
-	border-radius: 10px;
-	padding: 10px;
-	box-sizing: border-box;
-	z-index: 112;
-	font-size: 15px;
-}
-.bindingStu button{
-	box-shadow: 0px 0px 4px #4588aa;
-	margin:10px 0;
-	background: #fff;
-}
-.bindingStu input{
-	margin:30px 0;
-	padding: 5px 5px;
-	border-bottom: 1px solid #ccc;
-	font-size: 18px;
 }
 </style>

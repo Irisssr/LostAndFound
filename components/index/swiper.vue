@@ -9,7 +9,6 @@
 		</swiper>
 	</view>
 </template>
-
 <script>
 	export default{
 		data(){
@@ -29,7 +28,6 @@
 		}
 	}
 </script>
-
 <style scoped>
 /* 轮播图 */
 	.swiper{

@@ -2,7 +2,10 @@
 	<view class="mycard">
 		<view v-if="cardsList.cardType==='stuCard'" class="stucard">学生卡</view>
 		<view v-if="cardsList.cardType==='idCard'" class="idcard">身份证</view>
-		<view>姓名:{{ cardsList.cardName}}</view>
+		<view>
+			姓名:{{ cardsList.cardName}}
+			<span class="findready" v-if="cardsList.cardStatus!=='no'">已被学生{{cardsList.cardStatus}}认领</span>
+		</view>
 		<view>卡号:{{ cardsList.cardNum}}</view>
 		<view class="relation">
 			<view>
@@ -15,13 +18,12 @@
 		</view>
 	</view>
 </template>
-
 <script>
-	import { mapState} from 'vuex'
 	export default{
 		props:{
 			cardsList:{
-				type:Object
+				type:Object,
+				default:null
 			},
 			ismy:{
 				type:Boolean,
@@ -30,13 +32,9 @@
 		},
 		data(){
 			return{
-				relation:''
+				relation:'',
+				status:null
 			}
-		},
-		computed:{
-			...mapState({
-				sessionKey:state=>state.sessionKey
-			})
 		},
 		methods:{
 			cut(){
@@ -45,7 +43,7 @@
 				})
 			},
 			cardDel(id){
-				this.$emit('sendCardId',{id:id,sessionKey:this.sessionKey})
+				this.$emit('sendCardId',{id:id})
 			}
 		},
 		mounted() {
@@ -53,9 +51,24 @@
 		}
 	}
 </script>
+<style>
+	page{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
 <style scoped>
 	.mycard{
-		margin-top:5px;
+		border-radius: 10px;
+		margin: 5px 0;
+	}
+	.findready{
+		padding:5px 2px;
+		border-radius: 5px;
+		border: 1px solid red;
+		color:red;
+		font-size: 14px;
+		margin-left:20px;
 	}
 </style>
 

@@ -1,33 +1,33 @@
 <template>
 	<view class="content-box"
-			@tap="toInfo(userItem.id)">
-			<view class="content-img">
-				<image mode="aspectFit" :src="'https://www.gongsir.club:8081/'+userItem.goodImage" alt=""></image>
-			</view>
-			<view class="content-text">
-				<view class="text-top">
-					<view class="avatar-img">
-						<image :src="userItem.user.userHead" mode="aspectFit"></image>
-					</view>
-					<view class="avatar-text">
-						<view class="avatar-name">{{ userItem.user.userName}}</view>
-						<view class="avatar-time">{{ time}}</view>
-					</view>
+		@tap="toInfo(userItem.id)">
+		<view class="content-img">
+			<image mode="aspectFit" :src="'https://www.gongsir.club:8081/'+userItem.goodImage" alt=""></image>
+		</view>
+		<view class="content-text">
+			<view class="text-top">
+				<view class="avatar-img">
+					<image :src="userItem.user.userHead" mode="aspectFit"></image>
 				</view>
-				<view class="text-bottom">
-					{{userItem.goodTitle}}
+				<view class="avatar-text">
+					<view class="avatar-name">{{ userItem.user.userName}}</view>
+					<view class="avatar-time">{{ time}}</view>
 				</view>
 			</view>
-			<view class="content-type type-lost"
-				v-if="userItem.goodType==='lost'">
-				<text >失物招领</text>
-				<text v-if="userItem.goodType==='found'">寻物启事</text>
+			<view class="text-bottom">
+				{{userItem.goodTitle}}
 			</view>
-			<view class="content-type type-found"
-				v-if="userItem.goodType==='found'">
-				<text>寻物启事</text>
-			</view>
-		</view>	
+		</view>
+		<view class="content-type type-lost"
+			v-if="userItem.goodType==='lost'">
+			<text >失物招领</text>
+			<text v-if="userItem.goodType==='found'">寻物启事</text>
+		</view>
+		<view class="content-type type-found"
+			v-if="userItem.goodType==='found'">
+			<text>寻物启事</text>
+		</view>
+	</view>	
 </template>
 
 <script>
@@ -71,7 +71,7 @@
 	/* 内容 */
 	.content-box{
 		width: 100%;
-		margin: auto;
+		margin: 10px auto;
 		display: flex;
 		align-items: center;
 		box-shadow: 2px 2px 4px #C0C0C0;

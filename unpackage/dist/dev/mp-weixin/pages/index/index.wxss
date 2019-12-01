@@ -1,4 +1,10 @@
 
+page{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
 .index.data-v-72677498{
 	position: relative;
 	width: 100%;

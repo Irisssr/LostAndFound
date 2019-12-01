@@ -1,4 +1,14 @@
 
+page{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
+.msgList.data-v-2a4704d6,
+.cardList.data-v-2a4704d6{
+	padding: 10px 10px 0 10px;
+}
 .mypublish.data-v-2a4704d6{
 	height: 100px;
 	width: 100%;
@@ -94,9 +104,16 @@
 .type-found.data-v-2a4704d6{
 	background: #FF8000;
 }
-.nonemsg.data-v-2a4704d6{
-	margin-top:80px;
-	color: #C0C0C0;
+.item-none.data-v-2a4704d6{
+	padding-top:40px;
 	text-align: center;
+	color: #C0C0C0;
+}
+.loadingText.data-v-2a4704d6{
+	text-align: center;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #CCCCCC;
 }
 

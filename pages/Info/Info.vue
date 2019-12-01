@@ -53,8 +53,9 @@
 		<view class="infoBtn">
 			<button type="default" class="share" open-type="share">分享</button>
 			<button @tap="setPoster">生成图文海报</button>
-			<button type="default" class="warned" v-if="status!=='no'">已被学生{{dataInfo.goodStatus}}认领</button>
-			<button type="default" class="warn" @tap="touser" v-else>认领</button>
+			<button type="default" class="warned" v-show="status!=='no'">已被学生{{dataInfo.goodStatus}}认领</button>
+			<button type="default" class="warned" v-if="isfind">已认领</button>
+			<button type="default" class="warn" @tap="touser" v-if="!isfind&&status==='no'">认领</button>			
 		</view>
 	</view>
 </template>
@@ -74,6 +75,7 @@
 				reltype:'',
 				image:[],
 				app:'',
+				isfind:false,
 				canvasHeight:400,
 				animationData:{},
 				status:null,
@@ -85,7 +87,8 @@
 				goodsList:state=>state.goodsList,
 				sessionKey:state=>state.sessionKey,
 				myMsgList:state=>state.myMsgList,
-				pubUser:state=>state.pubUser
+				pubUser:state=>state.pubUser,
+				userInfo:state=>state.userInfo
 			})
 		},
 		methods: {
@@ -207,6 +210,12 @@
 				})
 			},
 			touser(){
+				if(!this.userInfo.stuNum){
+					return uni.showToast({
+						title:'认领前请先绑定学号',
+						icon:'none'
+					})
+				}
 				uni.showModal({
 					title:'西柚助手提示您',
 					content:'信息千万条,诚信第一条,请仔细核对是否是您的东西,认领后信息将消除,认领前请保留好联系方式',
@@ -219,6 +228,7 @@
 								sessionKey:this.sessionKey,
 								gid:this.dataInfo.id
 							}).then(res=>{
+								this.isfind=true;
 								uni.showToast({
 									title:res.msg
 								})

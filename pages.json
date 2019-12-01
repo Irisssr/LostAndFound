@@ -84,7 +84,8 @@
         ,{
             "path" : "pages/classifyList/classifyList",
             "style" : {
-				"navigationBarBackgroundColor":"#4588aa"
+				"navigationBarBackgroundColor":"#4588aa",
+				"enablePullDownRefresh": true
 			}
         }
     ],

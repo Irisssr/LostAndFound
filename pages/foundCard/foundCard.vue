@@ -11,7 +11,9 @@
 		</view>
 		<!-- 认领按钮 -->
 		<view class="infoBtn">
-			<button type="default" class="warn" @tap="touser">认领</button>
+			<button type="default" class="warn" @tap="touser" v-if="isfund">认领</button>
+			<button type="default" class="redwran" v-else>已认领</button>
+			<button type="default" @tap="toback">返回</button>
 		</view>
 	</view>
 </template>
@@ -29,11 +31,23 @@
 			return {
 				id:'',
 				msg:{},
-				reltype:[]
+				reltype:[],
+				isfund:true
 			}
 		},
 		methods: {
+			toback(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
+			},
 			touser(){
+				if(!this.userInfo.stuNum){
+					return uni.showToast({
+						title:'认领前请先绑定学号',
+						icon:'none'
+					})
+				}
 				uni.showModal({
 					title:'西柚助手提示您',
 					content:'信息千万条,诚信第一条,请仔细核对是否是您的东西,认领后信息将消除,认领前请保留好联系方式',
@@ -46,9 +60,11 @@
 								cid:this.id,
 								stuNum:this.userInfo.stuNum
 							}).then(res=>{
+								console.log(res)
 								uni.showToast({
 									title:res.msg
 								})
+								this.isfund=false;
 							})
 						}
 					}
@@ -92,6 +108,10 @@
 	}
 	.infoBtn button.warn{
 		background: #BF0000;
+		color: #fff;
+	}
+	.infoBtn button.redwran{
+		background: #dd524d;
 		color: #fff;
 	}
 	.relation{

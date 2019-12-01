@@ -6,19 +6,29 @@
 		<view class="pub_goodList">
 			<!-- 普通信息类发布 -->
 			<view class="pub_goodInfo" :animation="animationData1">
-				<GoodInfo v-for="(item,index) in goods" :key="index"
+				<view class="msgList">
+					<GoodInfo v-for="(item,index) in goods" :key="index"
 					:goodMsg="item"
 					:ismy="true"
 					@sendCardId="getCardId"></GoodInfo>
-				<view class="nonemsg">{{loadingText1}}</view> 
+				</view>
+				<view class="loadingText">{{loadingText1}}</view> 
+				<view class="item-none" v-if="goods.length===0">
+					您还没有发布任何信息
+				</view>
 			</view>
 			<!-- 卡证信息发布 -->
 			<view class="pub_goodCard" :animation="animationData2">
-				<GoodCard v-for="(item,index) in goods"  :key="index"
+				<view v-if="goods" class="cardList">
+					<GoodCard v-for="(item,index) in goods"  :key="index"
 					:cardsList="item"
 					:ismy="true"
-					@sendCardId="getCardId"></GoodCard>
-				<view class="nonemsg">{{loadingText2}}</view> 
+					@sendCardId="getIdCard"></GoodCard>
+				</view>
+				<view class="loadingText">{{loadingText2}}</view> 
+				<view class="item-none" v-if="goods.length===0">
+					您还没有发布任何卡证信息
+				</view>
 			</view>
 		</view>
 	</view>
@@ -69,7 +79,7 @@
 					this.getCard()
 				}
 			},
-			getCardId(data){
+			getIdCard(data){//删除证件信息
 				let that=this;
 				uni.showModal({
 					title:'是否确定删除',
@@ -83,7 +93,29 @@
 								limit:that.limit
 							}).then(res=>{
 								that.goods=res.goods;
-								console.log(res.goods)
+								uni.showToast({
+									title:res.msg
+								})
+							})
+						}
+					}
+				})
+			},
+			getCardId(data){//删除普通信息
+				let that=this;
+				console.log(data.id)
+				uni.showModal({
+					title:'是否确定删除',
+					content:'删除的数据不再恢复',
+					success:(res)=>{
+						if(res.confirm){
+							this.$api.mydele({
+								id:data.id,
+								sessionKey:that.sessionKey,
+								page:1,
+								limit:that.limit
+							}).then(res=>{
+								that.goods=res.goods;
 								uni.showToast({
 									title:res.msg
 								})
@@ -93,6 +125,7 @@
 				})
 			},
 			getCard(){//动画
+				this.goods=[];
 				this.type='card';
 				this.cpage=1;
 				this.getMyCard();
@@ -112,6 +145,7 @@
 				this.animationData2=animation2.export();
 			},
 			getMessage(){//动画
+				this.goods=[];
 				this.type='msg';
 				this.page=1;
 				this.getAllData();
@@ -129,35 +163,7 @@
 				this.animationData1=animation1.export();
 				this.animationData2=animation2.export();
 			},
-			remove(id){//删除
-				let that=this;
-				uni.showModal({
-					title:'是否确定删除',
-					content:'删除的数据不再恢复',
-					success:(res)=>{
-						if(res.confirm){
-							this.$api.mydele({
-								id:id,
-								page:1,
-								limit:that.limit,
-								sessionKey:that.sessionKey
-							}).then(res=>{
-								that.goods=res.goods;
-								uni.showToast({
-									title:res.msg
-								})
-							})
-						}
-					}
-				})
-				
-			},
-			toInfo(id){//信息详情
-				uni.navigateTo({
-					url:'../Info/Info?id='+id
-				})
-			},
-			getAllData(){//获取信息数据
+			getAllData(){//获取普通信息数据
 				let that=this;
 				uni.showLoading({
 					title:'加载中...'
@@ -168,9 +174,6 @@
 					limit:that.limit
 				}).then(res=>{
 					that.count=res.count
-					if(res.goods.length==0){
-						that.loadingText1='您还没有发布过信息'
-					}
 					that.getAllMsgList();
 					that.goods=res.goods
 				})
@@ -199,13 +202,12 @@
 					limit:that.limit
 				}).then(res=>{
 					if(res.goods.length===0){
-						uni.hideLoading()
-						that.loadingText1='已加载完全部';
 						that.page--;
-						return false;
+						that.loadingText1='已加载完全部';
 					}else{
 						that.goods=that.goods.concat(res.goods)
 					}
+					uni.hideLoading()
 				})
 			},
 			getMyCard(){//获取卡证数据
@@ -218,10 +220,6 @@
 					page:that.cpage,
 					limit:that.limit
 				}).then(res=>{
-					console.log(res)
-					if(res.cards.length==0){
-						that.loadingText2='您还没有发布过卡证信息'
-					}
 					that.goods=res.cards;
 				})
 				uni.hideLoading();
@@ -239,10 +237,7 @@
 				}).then(res=>{
 					if(res.cards.length==0){
 						that.cpage--;
-						uni.showToast({
-							title:'加载完全部',
-							icon:'none'
-						})
+						this.loadingText2='加载完全部'
 					}else{
 						that.goods=this.goods.concat(res.cards);
 					}
@@ -277,7 +272,17 @@
 	}
 </script>
 
+<style>
+	page{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
 <style scoped>
+.msgList,
+.cardList{
+	padding: 10px 10px 0 10px;
+}
 .mypublish{
 	height: 100px;
 	width: 100%;
@@ -349,9 +354,16 @@
 .type-found{
 	background: #FF8000;
 }
-.nonemsg{
-	margin-top:80px;
-	color: #C0C0C0;
+.item-none{
+	padding-top:40px;
 	text-align: center;
+	color: #C0C0C0;
+}
+.loadingText{
+	text-align: center;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #CCCCCC;
 }
 </style>

@@ -3,11 +3,7 @@
 		<!-- 查询关键字物品 -->
 		<view class="search">
 			<form class="search-form">
-				<input type="text" placeholder="输入物品名"
-					v-model="value"
-					confirm-type='search'
-					@focus="showdel"
-					@blur="hidedel"
+				<input type="text" placeholder="输入物品名" v-model="value" confirm-type='search' @focus="showdel" @blur="hidedel"
 					@confirm="addSearch"/>
 				<i class="iconfont icon_delete"
 					v-show="del"
@@ -15,9 +11,6 @@
 			</form>
 			<i class="iconfont icon_search"
 				@tap="searchKey">&#xe620;</i>
-		</view>
-		<view class="time-sort" v-show="list.length">
-			<text @tap="sortDesc">最新发布</text>
 		</view>
 		<view class="item" v-if="list.length">
 			<listItem v-for="(item,index) in list"
@@ -28,12 +21,10 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	import Search from '@/components/index/search.vue'
 	import listItem from '@/components/listItem.vue'
-	import { mapState,mapMutation } from 'vuex'
-	import Time from '@/common/time.js'
+	import { mapState } from 'vuex'
 	export default {
 		data() {
 			return {
@@ -46,8 +37,6 @@
 		},
 		computed:{
 			...mapState({
-				sessionKey:state=>state.sessionKey,
-				newgoodsList:state=>state.newgoodsList,
 				sessionKey:state=>state.sessionKey
 			})
 		},
@@ -85,8 +74,6 @@
 			hidedel(){
 				this.del=false
 			},
-			sortDesc(){
-			},
 			addSearch(e){
 				this.searchKey()
 			}
@@ -98,7 +85,6 @@
 		}
 	}
 </script>
-
 <style scoped>
 	.item,
 	.item-none{

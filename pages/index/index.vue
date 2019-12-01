@@ -68,9 +68,6 @@
 			NoticeBar
 		},
 		methods: {
-			showText(){
-				console.log('ok')
-			},
 			getSort(data){//判断正倒序排列
 				this.refresh=data.sortType
 				if(this.refresh){
@@ -224,6 +221,11 @@
 	}
 </script>
 
+<style>
+	page{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 </style>
 <style scoped>
 	.index{

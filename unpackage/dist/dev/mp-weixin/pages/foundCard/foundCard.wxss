@@ -16,6 +16,10 @@
 	background: #BF0000;
 	color: #fff;
 }
+.infoBtn button.redwran.data-v-de2c1218{
+	background: #dd524d;
+	color: #fff;
+}
 .relation.data-v-de2c1218{
 	margin-left:20px;
 	position: relative;

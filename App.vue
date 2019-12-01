@@ -16,7 +16,6 @@
 	/* 每个页面公共css */
 	@import "./style/comstyle.css";
 	@import "./style/iconfont.css";
-	/* @import "https://at.alicdn.com/t/font_1431089_keczjtvryfg.css"; */
 	*,
 	*::after,
 	*::before{

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "我的",
   "navigationBarBackgroundColor": "#4588aa",
-  "usingComponents": {}
+  "usingComponents": {
+    "user-head": "/components/user/userHead"
+  }
 }

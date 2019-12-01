@@ -1,5 +1,20 @@
 
+page{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
 .mycard.data-v-082259be{
-	margin-top:5px;
+	border-radius: 10px;
+	margin: 5px 0;
+}
+.findready.data-v-082259be{
+	padding:5px 2px;
+	border-radius: 5px;
+	border: 1px solid red;
+	color:red;
+	font-size: 14px;
+	margin-left:20px;
 }
 

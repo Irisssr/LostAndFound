@@ -1,8 +1,9 @@
 <template>
 	<view class="user_info">
 		<view class="user_content">
-			<view class="user_avatar"><img :src="userhead.user.userHead"></view>
-			<view class="user_name">{{ userhead.user.userName}}</view>
+			<view class="user_avatar"><img :src="userhead.userHead"></view>
+			<view class="user_name">{{ userhead.userName}}</view>
+			<view class="user_name" v-if="ismy" @tap="alterNum">{{userhead.stuNum}}</view>
 		</view>
 	</view>
 </template>
@@ -13,9 +14,21 @@
 		props:{
 			userhead:{
 				type:Object
+			},
+			ismy:{
+				type:Boolean,
+				default:false
 			}
 		},
-		created() {
+		data(){
+			return{
+				isNum:false
+			}
+		},
+		methods:{
+			alterNum(){
+				this.$emit('sendStu',{isNum:true})
+			}
 		}
 	}
 </script>

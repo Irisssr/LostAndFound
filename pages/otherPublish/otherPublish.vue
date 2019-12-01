@@ -1,35 +1,42 @@
 <template>
 	<view class="otherPub">
 		<!-- ta的头像和名称 -->
-		<UserHead :userhead="userInfo"></UserHead>
+		<UserHead :userhead="userInfo.user"></UserHead>
 		<!-- ta的信息分类 -->
 		<TypeTabbar @sendtabbar="getTabbar"></TypeTabbar>
 		<!-- 关于ta的发布 -->
 		<view class="pub_goodList">
 			<!-- 信息类发布 -->
 			<view class="pub_goodInfo" :animation="animationData">
-				<GoodInfo v-for="(item,index) in goods"
+				<view class="msgList" v-if="goods">
+					<GoodInfo v-for="(item,index) in goods"
 					:goodMsg="item"
 					:key="index"></GoodInfo>
-				<view class="nonemsg">{{loadingText1}}</view> 
+				</view>
+				<view class="loadingText">{{loadingText1}}</view>
+				<view class="item-none" v-if="goods.length===0">
+					ta还没有发布任何信息
+				</view>
 			</view>
 			<!-- 卡证信息发布 -->
 			<view class="pub_goodCard" :animation="animationData2">
-				<GoodCard v-for="(item,index) in goods" :key="index"
+				<view class="cardList" v-if="goods">
+					<GoodCard v-for="(item,index) in goods" :key="index"
 					:cardsList="item"
 					></GoodCard>
-				<view class="nonemsg">{{loadingText2}}</view> 
+				</view>
+				<view class="loadingText">{{loadingText2}}</view>
+				<view class="item-none" v-if="goods.length===0">
+					ta还没有发布卡证任何信息
+				</view>
 			</view>
 		</view>
 	</view>
 </template>
-
 <script>
 	import { mapState,mapMutations} from 'vuex'
-	
 	import config from '@/request/config.js'
 	import Time from '@/common/time.js'
-	
 	import GoodCard from '@/components/user/goodCard.vue'
 	import GoodInfo from '@/components/user/goodInfo.vue'
 	import UserHead from '@/components/user/userHead.vue'
@@ -133,9 +140,6 @@
 					openid:this.openid
 				}).then(res=>{
 					this.count=res.count;
-					if(res.goods.length==0){
-						that.loadingText1='ta还没有发布过信息'
-					}
 					this.getAllMsgList();
 					that.goods=res.goods
 					uni.hideLoading()
@@ -182,10 +186,7 @@
 				}).then(res=>{
 					if(res.goods.length===0){
 						that.page--;
-						uni.showToast({
-							title:'加载完全部',
-							icon:'none'
-						})
+						that.loadingText1='已加载完全部';
 					}else{
 						that.goods=that.goods.concat(res.goods)
 					}
@@ -207,15 +208,11 @@
 				}).then(res=>{
 					if(res.cards.length==0){
 						that.cpage--;
-						uni.showToast({
-							title:'加载完全部',
-							icon:'none'
-						})
-						uni.hideLoading();
+						that.loadingText2='已加载完全部';
 					}else{
 						that.goods=this.goods.concat(res.cards);
-						uni.hideLoading();
 					}
+					uni.hideLoading();
 				})
 			}
 		},
@@ -242,14 +239,31 @@
 	}
 </script>
 
+<style>
+	page{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
 <style scoped>
+	.msgList,
+	.cardList{
+		padding: 10px 10px 0 10px;
+	}
 	.otherPub{
 		width: 100%;
 	}
-	.nonemsg{
-		margin-top:80px;
-		color: #C0C0C0;
+	.item-none{
+		padding-top:40px;
 		text-align: center;
+		color: #C0C0C0;
+	}
+	.loadingText{
+		text-align: center;
+		font-size: 14px;
+		height: 40px;
+		line-height: 40px;
+		color: #CCCCCC;
 	}
 </style>
 

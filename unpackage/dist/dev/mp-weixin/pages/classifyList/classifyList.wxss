@@ -1,7 +1,17 @@
 
 .item-none.data-v-af9a07e4{
-	padding-top:80px;
+	padding-top:40px;
 	text-align: center;
 	color: #C0C0C0;
+}
+.item.data-v-af9a07e4{
+	padding: 40px 10px 0 10px;
+}
+.loadingText.data-v-af9a07e4{
+	text-align: center;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #CCCCCC;
 }
 
