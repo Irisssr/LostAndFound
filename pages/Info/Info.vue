@@ -240,13 +240,14 @@
 			isData(){
 				if(this.status==='no'){
 					this.dataInfo=this.goodsList.find(item=>item.id==this.id);
+					this.app=this.dataInfo.user.userApp
 				}else{
-					this.dataInfo=this.myMsgList.find(item=>item.id==this.id)
+					this.dataInfo=this.myMsgList.find(item=>item.id==this.id);
+					this.app=this.pubUser.userApp;
 				}
 				let str=this.dataInfo.relation.split(":");
 				this.relate=str[1];
 				this.reltype=str[0];
-				this.app=this.dataInfo.user.userApp
 				this.image.push(config.imgUrl+this.dataInfo.goodImage)
 			}
 		},

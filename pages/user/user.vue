@@ -5,14 +5,18 @@
 		<view class="mask" v-show="ismask" @tap="isMask"></view>
 		<!-- 更新学号 -->
 		<view class="bindingStu" v-show="ismask">
-			<input type="number" v-model="card_num" placeholder="请填写学号">
+			<input type="number" v-model="card_num" placeholder="请填写学号" maxlength="12">
 			<button type="default" @tap="bindStuNum">确认更新</button>
 		</view>
 		<!-- 相关信息列表 -->
 		<view class="userList" :animation="animationData">
-			<button class="listItem" @tap="myPublish">
+			<button class="listItem" @tap="myFind">
 				<span class="iconfont">&#xe618;</span>
 				<span>我的发布</span>
+			</button>
+			<button class="listItem" @tap="myPublish">
+				<span class="iconfont">&#xe618;</span>
+				<span>我的认领</span>
 			</button>
 			<button class="listItem" @tap="toAbout">
 				<span class="iconfont">&#xe62e;</span>
@@ -63,6 +67,9 @@
 					data:this.qqQun
 				})
 			},
+			myFind(){
+				
+			},
 			myPublish(){
 				if(!this.sessionKey){
 					return uni.showToast({
@@ -87,6 +94,12 @@
 				if(that.card_num===''){
 					return uni.showToast({
 						title:'请填写学号',
+						icon:'none'
+					})
+				}
+				if(that.card_num.length!==12){
+					return uni.showToast({
+						title:'学号长度为12',
 						icon:'none'
 					})
 				}

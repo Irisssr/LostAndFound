@@ -11,7 +11,7 @@ const mutations={
 		let userHead=obj.userHead;
 		let user={
 			userHead:userHead,
-			userName:userName,
+			userName:userName
 		}
 		state.userInfo=user;
 	},

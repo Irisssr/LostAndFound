@@ -280,6 +280,12 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
           icon: 'none' });
 
       }
+      if (that.card_num.length !== 12) {
+        return uni.showToast({
+          title: '学号长度为12',
+          icon: 'none' });
+
+      }
       that.getstuNum({ stuNum: that.card_num });
       this.$api.bindNum({
         sessionKey: that.sessionKey,

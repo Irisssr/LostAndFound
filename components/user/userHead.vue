@@ -3,7 +3,11 @@
 		<view class="user_content">
 			<view class="user_avatar"><img :src="userhead.userHead"></view>
 			<view class="user_name">{{ userhead.userName}}</view>
-			<view class="user_name" v-if="ismy" @tap="alterNum">{{userhead.stuNum}}</view>
+			<view class="user_name" v-if="ismy" @tap="alterNum">
+				<span class="iconfont">&#xe62d;</span>
+				<span v-if="userhead.stuNum">{{userhead.stuNum}}</span>
+				<span v-else>[请绑定学号]</span>
+			</view>
 		</view>
 	</view>
 </template>

@@ -147,10 +147,11 @@
 			},
 			getAllMsgList(){
 				let that=this;
-				this.$api.mypublish({
+				this.$api.hispublish({
 					sessionKey:that.sessionKey,
 					page:1,
-					limit:that.count
+					limit:that.count,
+					openid:that.openid
 				}).then(res=>{
 					that.getMsgList(res.goods);
 					that.getpubUser(res.goods[0].user)

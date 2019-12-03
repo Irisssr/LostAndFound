@@ -364,13 +364,14 @@ var _config = _interopRequireDefault(__webpack_require__(/*! @/request/config.js
     isData: function isData() {var _this4 = this;
       if (this.status === 'no') {
         this.dataInfo = this.goodsList.find(function (item) {return item.id == _this4.id;});
+        this.app = this.dataInfo.user.userApp;
       } else {
         this.dataInfo = this.myMsgList.find(function (item) {return item.id == _this4.id;});
+        this.app = this.pubUser.userApp;
       }
       var str = this.dataInfo.relation.split(":");
       this.relate = str[1];
       this.reltype = str[0];
-      this.app = this.dataInfo.user.userApp;
       this.image.push(_config.default.imgUrl + this.dataInfo.goodImage);
     } },
 

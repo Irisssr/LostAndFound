@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _vuex = __webpack_require__(/*! vuex */ 16);
 var _config = _interopRequireDefault(__webpack_require__(/*! @/request/config.js */ 24));
-var _time = _interopRequireDefault(__webpack_require__(/*! @/common/time.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var GoodCard = function GoodCard() {return __webpack_require__.e(/*! import() | components/user/goodCard */ "components/user/goodCard").then(__webpack_require__.bind(null, /*! @/components/user/goodCard.vue */ 208));};var GoodInfo = function GoodInfo() {return __webpack_require__.e(/*! import() | components/user/goodInfo */ "components/user/goodInfo").then(__webpack_require__.bind(null, /*! @/components/user/goodInfo.vue */ 217));};var UserHead = function UserHead() {return __webpack_require__.e(/*! import() | components/user/userHead */ "components/user/userHead").then(__webpack_require__.bind(null, /*! @/components/user/userHead.vue */ 240));};var TypeTabbar = function TypeTabbar() {return __webpack_require__.e(/*! import() | components/user/typetabbar */ "components/user/typetabbar").then(__webpack_require__.bind(null, /*! @/components/user/typetabbar.vue */ 201));};var _default =
+var _time = _interopRequireDefault(__webpack_require__(/*! @/common/time.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var GoodCard = function GoodCard() {return __webpack_require__.e(/*! import() | components/user/goodCard */ "components/user/goodCard").then(__webpack_require__.bind(null, /*! @/components/user/goodCard.vue */ 201));};var GoodInfo = function GoodInfo() {return __webpack_require__.e(/*! import() | components/user/goodInfo */ "components/user/goodInfo").then(__webpack_require__.bind(null, /*! @/components/user/goodInfo.vue */ 210));};var UserHead = function UserHead() {return __webpack_require__.e(/*! import() | components/user/userHead */ "components/user/userHead").then(__webpack_require__.bind(null, /*! @/components/user/userHead.vue */ 233));};var TypeTabbar = function TypeTabbar() {return __webpack_require__.e(/*! import() | components/user/typetabbar */ "components/user/typetabbar").then(__webpack_require__.bind(null, /*! @/components/user/typetabbar.vue */ 194));};var _default =
 
 
 
@@ -173,10 +173,11 @@ var _time = _interopRequireDefault(__webpack_require__(/*! @/common/time.js */ 1
     },
     getAllMsgList: function getAllMsgList() {
       var that = this;
-      this.$api.mypublish({
+      this.$api.hispublish({
         sessionKey: that.sessionKey,
         page: 1,
-        limit: that.count }).
+        limit: that.count,
+        openid: that.openid }).
       then(function (res) {
         that.getMsgList(res.goods);
         that.getpubUser(res.goods[0].user);

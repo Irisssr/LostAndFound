@@ -30,7 +30,6 @@
 	import Time from '@/common/time.js'
 	import Search from '@/components/index/search.vue'
 	import ClassList from '@/components/index/classList.vue'
-	import Login from '@/components/index/Login.vue'
 	import SortTap from '@/components/index/sorttap.vue'
 	import Swiper from '@/components/index/swiper.vue'
 	import NoticeBar from '@/components/index/noticeBar.vue'
@@ -62,7 +61,6 @@
 			ListItem,
 			Search,
 			ClassList,
-			Login,
 			SortTap,
 			Swiper,
 			NoticeBar
@@ -205,7 +203,10 @@
 		},
 		onShow() {
 			this.$api.isLogin()
-			uni.startPullDownRefresh();
+			this.page=1;
+			this.decpage=1;
+			this.getDataList();
+			// uni.startPullDownRefresh();
 		},
 		onShareAppMessage() {
 			return{

@@ -6,7 +6,7 @@
 		<view class="pub_goodList">
 			<!-- 普通信息类发布 -->
 			<view class="pub_goodInfo" :animation="animationData1">
-				<view class="msgList">
+				<view v-if="goods" class="msgList">
 					<GoodInfo v-for="(item,index) in goods" :key="index"
 					:goodMsg="item"
 					:ismy="true"
@@ -35,11 +35,9 @@
 </template>
 <script>
 	import { mapState,mapMutations} from 'vuex'
-	
 	import TypeTabbar from '@/components/user/typetabbar.vue'
 	import GoodCard from '@/components/user/goodCard.vue'
 	import GoodInfo from '@/components/user/goodInfo.vue'
-	
 	export default {
 		data(){
 			return{

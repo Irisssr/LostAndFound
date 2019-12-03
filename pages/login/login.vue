@@ -23,7 +23,7 @@
 					<view class="login-box">
 						<view>学号绑定</view>
 						<view class="stuNum">
-							<input type="number" v-model="card_num">
+							<input type="number" v-model="card_num" maxlength="12">
 						</view>
 					</view>
 					<button class="loginbtn" type="default"
@@ -151,6 +151,12 @@
 				if(that.card_num===''){
 					return uni.showToast({
 						title:'请填写学号',
+						icon:'none'
+					})
+				}
+				if(that.card_num.length!==12){
+					return uni.showToast({
+						title:'学号长度为12',
 						icon:'none'
 					})
 				}
