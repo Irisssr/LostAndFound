@@ -3,7 +3,7 @@ import config from '@/request/config.js'
 const http={} 
 
 http.checkSession=()=>{
-	uni.checkSession({
+	 uni.checkSession({
 		success:(res)=>{
 		},
 		fail:(err)=>{
@@ -11,8 +11,8 @@ http.checkSession=()=>{
 				title:'登录已失效,请重新登录',
 				icon:'none'
 			})
-			uni.navigateTo({
-				url:'../login/login'
+			uni.reLaunch({
+				url:'/pages/login/login'
 			})
 		}
 	})
@@ -28,13 +28,30 @@ http.request=(url,method,data)=>{
 	}).then(res=>{
 		if(res[1].statusCode&&res[1].statusCode==200){
 			return res[1].data
-		}else{
+		}else if(res[1].statusCode==401){
+			uni.showToast({
+				title:'登录已失效,请重新登录',
+				icon:'none'
+			})
+			uni.reLaunch({
+				url:'/pages/login/login'
+			})
+		}
+		else{
 			throw res[1].data
 		}
 	}).catch(error=>{
+		console.log(error)
 		switch(error.code){
 			case 401:
 				console.log(error)
+				uni.showToast({
+					title:'登录已失效,请重新登录',
+					icon:'none'
+				})
+				uni.reLaunch({
+					url:'/pages/login/login'
+				})
 				break;
 			default:
 				console.log(error)

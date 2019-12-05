@@ -23,6 +23,9 @@
 					return []
 				}
 			}
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

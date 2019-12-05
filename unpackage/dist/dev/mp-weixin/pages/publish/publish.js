@@ -136,27 +136,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var publishLost = function publishLost() {return __webpack_require__.e(/*! import() | components/publish/publishLost */ "components/publish/publishLost").then(__webpack_require__.bind(null, /*! @/components/publish/publishLost.vue */ 177));};var publishFound = function publishFound() {return __webpack_require__.e(/*! import() | components/publish/publishFound */ "components/publish/publishFound").then(__webpack_require__.bind(null, /*! @/components/publish/publishFound.vue */ 182));};var tabarHead = function tabarHead() {return __webpack_require__.e(/*! import() | components/tabarHead */ "components/tabarHead").then(__webpack_require__.bind(null, /*! @/components/tabarHead.vue */ 187));};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tabarHead = function tabarHead() {return __webpack_require__.e(/*! import() | components/tabarHead */ "components/tabarHead").then(__webpack_require__.bind(null, /*! @/components/tabarHead.vue */ 181));};var PubClassify = function PubClassify() {return __webpack_require__.e(/*! import() | components/publish/pubClassify */ "components/publish/pubClassify").then(__webpack_require__.bind(null, /*! @/components/publish/pubClassify.vue */ 188));};var Relation = function Relation() {return __webpack_require__.e(/*! import() | components/publish/relationType */ "components/publish/relationType").then(__webpack_require__.bind(null, /*! @/components/publish/relationType.vue */ 195));};var _default =
+
+
+
+
 {
   data: function data() {
     return {
       titleHead: {
         name1: '失物招领',
-        name2: '寻物启事' } };
+        name2: '寻物启事' },
 
+      relation: '',
+      imageList: [],
+      text: '',
+      title: '',
+      relationType: '',
+      classfiyType: 'learn' };
 
   },
   computed: _objectSpread({},
   (0, _vuex.mapState)({
-    msgType: function msgType(state) {return state.msgType;} })),
+    msgType: function msgType(state) {return state.msgType;},
+    sessionKey: function sessionKey(state) {return state.sessionKey;} })),
 
 
   components: {
-    publishLost: publishLost,
-    publishFound: publishFound,
-    tabarHead: tabarHead },
+    tabarHead: tabarHead,
+    PubClassify: PubClassify,
+    Relation: Relation },
 
-  methods: {
+  methods: _defineProperty({
     lostSubmit: function lostSubmit() {//发布
       var that = this;
       if (!that.sessionKey) {
@@ -166,7 +209,122 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
 
         return false;
       }
-    } },
+    },
+    getRelation: function getRelation(data) {
+      this.relationType = data.relationType;
+    },
+    getClass: function getClass(data) {
+      this.classfiyType = data.classType;
+    },
+    getPicture: function getPicture() {
+      var that = this;
+      uni.chooseImage({
+        count: 1,
+        success: function success(res) {
+          that.imageList = res.tempFilePaths;
+        } });
+
+    },
+    getPreview: function getPreview(index) {
+      var that = this;
+      uni.previewImage({
+        current: index,
+        urls: that.imageList });
+
+    },
+    deleteImg: function deleteImg(index) {
+      this.imageList.splice(index, 1);
+    } }, "lostSubmit", function lostSubmit()
+  {var _this = this; //发布
+    console.log(this.msgType);
+    var that = this;
+    if (!that.sessionKey) {
+      uni.showToast({
+        title: '请先完成授权!',
+        icon: 'none' });
+
+      return false;
+    }
+    if (that.title === '') {
+      return uni.showToast({
+        title: '请填写标题',
+        icon: 'none' });
+
+      return false;
+    }
+
+    if (that.classfiyType === '') {
+      return uni.showToast({
+        title: '请选择类别',
+        icon: 'none' });
+
+      return false;
+    }
+    if (that.relation === '' || that.relationType === '') {
+      return uni.showToast({
+        title: '请填写联系方式',
+        icon: 'none' });
+
+      return false;
+    }
+    if (that.relationType === 'tel') {
+      if (!/^1[3456789]\d{9}/.test(that.relation)) {
+        uni.showToast({
+          title: '手机号有误,请重填!',
+          icon: 'none' });
+
+        return false;
+      }
+    }
+    uni.showLoading({
+      title: '信息发送中...' });
+
+    if (that.imageList.length == 0) {
+      var image = '';
+      uni.downloadFile({
+        url: 'https://gongsir.club:8081/uploadImg/logo.jpg',
+        success: function success(res) {
+          _this.$api.pubGood(res.tempFilePath, {
+            sessionKey: that.sessionKey,
+            goodType: that.msgType,
+            goodTitle: that.title,
+            goodTexts: that.text,
+            goodClass: that.classfiyType,
+            relation: that.relationType + ':' + that.relation }).
+          then(function (res) {
+            that.imgList = [];
+            that.title = '';
+            that.text = '';
+            that.imageList = [];
+            that.relation = '';
+            uni.showToast({
+              title: JSON.parse(res).msg });
+
+          });
+        } });
+
+    } else {
+      this.$api.pubGood(that.imageList[0], {
+        sessionKey: that.sessionKey,
+        goodType: that.msgType,
+        goodTitle: that.title,
+        goodTexts: that.text,
+        goodClass: that.classfiyType,
+        relation: that.relationType + ':' + that.relation }).
+      then(function (res) {
+        console.log(res);
+        that.imgList = [];
+        that.title = '';
+        that.text = '';
+        that.imageList = [];
+        that.relation = '';
+        uni.showToast({
+          title: JSON.parse(res).msg });
+
+      });
+      uni.hideLoading();
+    }
+  }),
 
   onLoad: function onLoad() {
     this.$api.isLogin();

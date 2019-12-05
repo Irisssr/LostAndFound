@@ -55,6 +55,9 @@
 			remove(id){
 				this.$emit('sendCardId',{id:id})
 			}
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

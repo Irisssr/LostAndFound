@@ -46,7 +46,8 @@
 				this.$emit('sendCardId',{id:id})
 			}
 		},
-		mounted() {
+		created() {
+			this.$api.isLogin();
 			this.relation=this.cardsList.relation.split(':');
 		}
 	}

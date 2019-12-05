@@ -11,7 +11,8 @@
     "pages/otherPublish/otherPublish",
     "pages/filterItem/filterItem",
     "pages/foundCard/foundCard",
-    "pages/classifyList/classifyList"
+    "pages/classifyList/classifyList",
+    "pages/myFind/myFind"
   ],
   "subPackages": [],
   "window": {
@@ -50,6 +51,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap91.json"
+  "usingComponents": {}
 }

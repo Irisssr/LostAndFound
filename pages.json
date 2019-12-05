@@ -88,6 +88,14 @@
 				"enablePullDownRefresh": true
 			}
         }
+        ,{
+            "path" : "pages/myFind/myFind",
+            "style" : {
+				"navigationBarTitleText":"我的认领",
+				"navigationBarBackgroundColor":"#4588aa",
+				"enablePullDownRefresh": true
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

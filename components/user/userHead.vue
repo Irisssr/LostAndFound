@@ -31,8 +31,14 @@
 		},
 		methods:{
 			alterNum(){
-				this.$emit('sendStu',{isNum:true})
+				uni.showModal({
+					title:'更改学号',
+					content:'更改学号请联系管理员'
+				})
 			}
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

@@ -6,27 +6,27 @@
 		<view class="pub_goodList">
 			<!-- 普通信息类发布 -->
 			<view class="pub_goodInfo" :animation="animationData1">
-				<view v-if="goods" class="msgList">
+				<view v-if="goods" class="pub_msgList">
 					<GoodInfo v-for="(item,index) in goods" :key="index"
 					:goodMsg="item"
 					:ismy="true"
 					@sendCardId="getCardId"></GoodInfo>
 				</view>
-				<view class="loadingText">{{loadingText1}}</view> 
-				<view class="item-none" v-if="goods.length===0">
+				<view class="pub_loadingText">{{loadingText1}}</view> 
+				<view class="pub_itemNone" v-if="goods.length===0">
 					您还没有发布任何信息
 				</view>
 			</view>
 			<!-- 卡证信息发布 -->
 			<view class="pub_goodCard" :animation="animationData2">
-				<view v-if="goods" class="cardList">
+				<view v-if="goods" class="pub_cardList">
 					<GoodCard v-for="(item,index) in goods"  :key="index"
 					:cardsList="item"
 					:ismy="true"
 					@sendCardId="getIdCard"></GoodCard>
 				</view>
-				<view class="loadingText">{{loadingText2}}</view> 
-				<view class="item-none" v-if="goods.length===0">
+				<view class="pub_loadingText">{{loadingText2}}</view> 
+				<view class="pub_itemNone" v-if="goods.length===0">
 					您还没有发布任何卡证信息
 				</view>
 			</view>
@@ -277,91 +277,4 @@
 	}
 </style>
 <style scoped>
-.msgList,
-.cardList{
-	padding: 10px 10px 0 10px;
-}
-.mypublish{
-	height: 100px;
-	width: 100%;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	padding-left:5px;
-	box-shadow: 2px 0px 5px #ccc;
-	margin:5px 0;
-}
-.myleft{
-	width: 90px;
-	height: 90px;
-	border-radius: 5px;
-}
-.myleft image{
-	width: 100%;
-	height: 100%;
-}
-.myright{
-	width: 70%;
-	margin-left:10px;
-	height: 100%;
-	position: relative;
-}
-.myright .mytitle{
-	line-height: 40px;
-	padding-left:5px;
-	border-bottom:1px dashed #ccc;
-}
-.myright .mybtn{
-	z-index: 22;
-	width: 100%;
-	height: 40px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 14px;
-	color: #333333;
-}
-.myright .mytext{
-	overflow: hidden;
-	display: flex;
-	flex-wrap: wrap;
-	width: 150px;
-	height: 30px;
-	overflow: hidden;
-	padding:10px 5px;
-}
-.mybtn .delete{
-	margin:0 10px;
-	border:1px solid #4588aa;
-	border-radius: 5px;
-	padding: 2px 8px;
-}
-.myright .goodType{
-	position: absolute;
-	top:0;
-	right:0;
-	border-top-left-radius: 12px;
-	border-bottom-left-radius:12px;
-	font-size: 12px;
-	color:#fff;
-	padding:4px 10px;
-}
-.type-lost{
-	background: #DD524D;
-}
-.type-found{
-	background: #FF8000;
-}
-.item-none{
-	padding-top:40px;
-	text-align: center;
-	color: #C0C0C0;
-}
-.loadingText{
-	text-align: center;
-	font-size: 14px;
-	height: 40px;
-	line-height: 40px;
-	color: #CCCCCC;
-}
 </style>

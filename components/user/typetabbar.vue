@@ -20,6 +20,9 @@
 				this.iscard=type
 				this.$emit('sendtabbar',{ typetabbar:type})
 			}
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

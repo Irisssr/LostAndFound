@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "lost-stu-card": "/components/card/lostStuCard",
-    "lost-i-d-card": "/components/card/lostIDCard"
+    "relation": "/components/publish/relationType"
   },
   "component": true
 }

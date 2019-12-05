@@ -89,6 +89,9 @@
 		},
 		onShow(){
 			this.move();
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

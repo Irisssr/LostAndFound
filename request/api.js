@@ -5,23 +5,25 @@ const apis={}
 
 apis.isLogin=()=>http.checkSession();
 // index
-apis.onlogin=params=>http.request('/user/login','POST',params);
-apis.getData=params=>http.request('/good/all','GET',params);
-apis.bindNum=params=>http.request('/user/update','POST',params);
+apis.onlogin=(params)=>http.request('/user/login','POST',params);
+apis.getData=(params)=>http.request('/good/all','GET',params);
+apis.bindNum=(params)=>http.request('/user/update','POST',params);
 
 // publish
-apis.pubCard=params=>http.request('/card/add','POST',params);
+apis.pubCard=(params)=>http.request('/card/add','POST',params);
 apis.pubGood=(file,params)=>http.upload('/good/add',file,params);
-apis.listen=params=>http.request('/listen/listen','POST',params);
+apis.listen=(params)=>http.request('/listen/listen','POST',params);
 apis.pubCor=(file,params)=>http.upload('/card/ocr',file,params);
 
 // classify
-apis.classify=params=>http.request('/good/class','GET',params);
-apis.searchfor=params=>http.request('/good/search','GET',params);
+apis.classify=(params)=>http.request('/good/class','GET',params);
+apis.searchfor=(params)=>http.request('/good/search','GET',params);
 
 // user
-apis.mypublish=params=>http.request('/good/my','GET',params);
-apis.hispublish=params=>http.request('/good/his','GET',params);
+apis.findCard=(params)=>http.request('/card/hasFound','GET',params);
+apis.findGood=(params)=>http.request('/good/hasFound','GET',params);
+apis.mypublish=(params)=>http.request('/good/my','GET',params);
+apis.hispublish=(params)=>http.request('/good/his','GET',params);
 apis.myCard=(params)=>http.request('/card/my','GET',params);
 apis.hisCard=(params)=>http.request('/card/his','GET',params);
 //delete

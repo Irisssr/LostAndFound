@@ -33,6 +33,9 @@
 				this.relationType=type
 				this.$emit('sendRelation',{ relationType:type})
 			}	
+		},
+		created() {
+			this.$api.isLogin();
 		}
 	}
 </script>

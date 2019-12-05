@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6990,7 +6990,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7011,14 +7011,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7094,7 +7094,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8415,7 +8415,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": { "navigationBarTitleText": "登录", "navigationBarBackgroundColor": "#4588aa" }, "pages/about/about": { "navigationBarTitleText": "关于我们", "navigationBarBackgroundColor": "#4588aa" }, "pages/index/index": { "navigationBarTitleText": "首页", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/publish/publish": { "navigationBarTitleText": "信息发布", "navigationBarBackgroundColor": "#4588aa" }, "pages/myPublish/myPublish": { "navigationBarTitleText": "我的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/studentCard/studentCard": { "navigationBarTitleText": "学生卡", "navigationBarBackgroundColor": "#4588aa" }, "pages/Info/Info": { "navigationBarTitleText": "物品详情", "navigationBarBackgroundColor": "#4588aa" }, "pages/user/user": { "navigationBarTitleText": "我的", "navigationBarBackgroundColor": "#4588aa" }, "pages/otherPublish/otherPublish": { "navigationBarTitleText": "ta的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/filterItem/filterItem": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/foundCard/foundCard": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa" }, "pages/classifyList/classifyList": { "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": { "navigationBarTitleText": "登录", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/about/about": { "navigationBarTitleText": "关于我们", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "steps": "/components/user/step" } }, "pages/index/index": { "navigationBarTitleText": "首页", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "list-item": "/components/listItem", "search": "/components/index/search", "class-list": "/components/index/classList", "sort-tap": "/components/index/sorttap", "swiper": "/components/index/swiper", "notice-bar": "/components/index/noticeBar" } }, "pages/publish/publish": { "navigationBarTitleText": "信息发布", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "tabar-head": "/components/tabarHead", "pub-classify": "/components/publish/pubClassify", "relation": "/components/publish/relationType" } }, "pages/myPublish/myPublish": { "navigationBarTitleText": "我的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "type-tabbar": "/components/user/typetabbar", "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo" } }, "pages/studentCard/studentCard": { "navigationBarTitleText": "学生卡", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "title-head": "/components/tabarHead", "lost-card": "/components/card/lostCard", "found-card": "/components/card/foundCard" } }, "pages/Info/Info": { "navigationBarTitleText": "物品详情", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/user/user": { "navigationBarTitleText": "我的", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "user-head": "/components/user/userHead" } }, "pages/otherPublish/otherPublish": { "navigationBarTitleText": "ta的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo", "user-head": "/components/user/userHead", "type-tabbar": "/components/user/typetabbar" } }, "pages/filterItem/filterItem": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "search": "/components/index/search", "list-item": "/components/listItem" } }, "pages/foundCard/foundCard": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/classifyList/classifyList": { "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "list-item": "/components/listItem", "search": "/components/index/search" } }, "pages/myFind/myFind": { "navigationBarTitleText": "我的认领", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "type-tabbar": "/components/user/typetabbar", "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo" } } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9739,6 +9739,8 @@ apis.classify = function (params) {return _http.default.request('/good/class', '
 apis.searchfor = function (params) {return _http.default.request('/good/search', 'GET', params);};
 
 // user
+apis.findCard = function (params) {return _http.default.request('/card/hasFound', 'GET', params);};
+apis.findGood = function (params) {return _http.default.request('/good/hasFound', 'GET', params);};
 apis.mypublish = function (params) {return _http.default.request('/good/my', 'GET', params);};
 apis.hispublish = function (params) {return _http.default.request('/good/his', 'GET', params);};
 apis.myCard = function (params) {return _http.default.request('/card/my', 'GET', params);};
@@ -9776,8 +9778,8 @@ http.checkSession = function () {
         title: '登录已失效,请重新登录',
         icon: 'none' });
 
-      uni.navigateTo({
-        url: '../login/login' });
+      uni.reLaunch({
+        url: '/pages/login/login' });
 
     } });
 
@@ -9793,13 +9795,30 @@ http.request = function (url, method, data) {
   then(function (res) {
     if (res[1].statusCode && res[1].statusCode == 200) {
       return res[1].data;
-    } else {
+    } else if (res[1].statusCode == 401) {
+      uni.showToast({
+        title: '登录已失效,请重新登录',
+        icon: 'none' });
+
+      uni.reLaunch({
+        url: '/pages/login/login' });
+
+    } else
+    {
       throw res[1].data;
     }
   }).catch(function (error) {
+    console.log(error);
     switch (error.code) {
       case 401:
         console.log(error);
+        uni.showToast({
+          title: '登录已失效,请重新登录',
+          icon: 'none' });
+
+        uni.reLaunch({
+          url: '/pages/login/login' });
+
         break;
       default:
         console.log(error);

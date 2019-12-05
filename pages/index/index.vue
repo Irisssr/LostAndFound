@@ -33,7 +33,7 @@
 	import SortTap from '@/components/index/sorttap.vue'
 	import Swiper from '@/components/index/swiper.vue'
 	import NoticeBar from '@/components/index/noticeBar.vue'
-
+	import checkLogin from '@/common/util.js'
 	export default {
 		data() {
 			return {
@@ -202,7 +202,7 @@
 			}
 		},
 		onShow() {
-			this.$api.isLogin()
+			this.$api.isLogin();
 			this.page=1;
 			this.decpage=1;
 			this.getDataList();

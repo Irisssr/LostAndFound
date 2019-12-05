@@ -300,6 +300,23 @@ button.cor_btn{
 	z-index: 2;
 	transform: rotateY(-180deg);
 }
+/* 我的发布动画 */
+.pub_msgList,
+.pub_cardList{
+	padding: 10px 10px 0 10px;
+}
+.pub_itemNone{
+	padding-top:40px;
+	text-align: center;
+	color: #C0C0C0;
+}
+.pub_loadingText{
+	text-align: center;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #CCCCCC;
+}
 /* 发布的卡证信息 */
 .mycard{
 	box-shadow: 2px 2px 5px #C0C0C0;

@@ -8,25 +8,25 @@
 		<view class="pub_goodList">
 			<!-- 信息类发布 -->
 			<view class="pub_goodInfo" :animation="animationData">
-				<view class="msgList" v-if="goods">
+				<view class="pub_msgList" v-if="goods">
 					<GoodInfo v-for="(item,index) in goods"
 					:goodMsg="item"
 					:key="index"></GoodInfo>
 				</view>
-				<view class="loadingText">{{loadingText1}}</view>
-				<view class="item-none" v-if="goods.length===0">
+				<view class="pub_loadingText">{{loadingText1}}</view>
+				<view class="pub_itemNone" v-if="goods.length===0">
 					ta还没有发布任何信息
 				</view>
 			</view>
 			<!-- 卡证信息发布 -->
 			<view class="pub_goodCard" :animation="animationData2">
-				<view class="cardList" v-if="goods">
+				<view class="pub_cardList" v-if="goods">
 					<GoodCard v-for="(item,index) in goods" :key="index"
 					:cardsList="item"
 					></GoodCard>
 				</view>
-				<view class="loadingText">{{loadingText2}}</view>
-				<view class="item-none" v-if="goods.length===0">
+				<view class="pub_loadingText">{{loadingText2}}</view>
+				<view class="pub_itemNone" v-if="goods.length===0">
 					ta还没有发布卡证任何信息
 				</view>
 			</view>
@@ -247,24 +247,8 @@
 	}
 </style>
 <style scoped>
-	.msgList,
-	.cardList{
-		padding: 10px 10px 0 10px;
-	}
 	.otherPub{
 		width: 100%;
-	}
-	.item-none{
-		padding-top:40px;
-		text-align: center;
-		color: #C0C0C0;
-	}
-	.loadingText{
-		text-align: center;
-		font-size: 14px;
-		height: 40px;
-		line-height: 40px;
-		color: #CCCCCC;
 	}
 </style>
 

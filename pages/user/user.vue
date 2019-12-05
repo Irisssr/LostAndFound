@@ -6,16 +6,15 @@
 		<!-- 更新学号 -->
 		<view class="bindingStu" v-show="ismask">
 			<input type="number" v-model="card_num" placeholder="请填写学号" maxlength="12">
-			<button type="default" @tap="bindStuNum">确认更新</button>
 		</view>
 		<!-- 相关信息列表 -->
 		<view class="userList" :animation="animationData">
-			<button class="listItem" @tap="myFind">
+			<button class="listItem" @tap="myPublish">
 				<span class="iconfont">&#xe618;</span>
 				<span>我的发布</span>
 			</button>
-			<button class="listItem" @tap="myPublish">
-				<span class="iconfont">&#xe618;</span>
+			<button class="listItem" @tap="myFind">
+				<span class="iconfont">&#xe620;</span>
 				<span>我的认领</span>
 			</button>
 			<button class="listItem" @tap="toAbout">
@@ -68,7 +67,9 @@
 				})
 			},
 			myFind(){
-				
+				uni.navigateTo({
+					url:'/pages/myFind/myFind'
+				})
 			},
 			myPublish(){
 				if(!this.sessionKey){
@@ -88,34 +89,6 @@
 			},
 			isMask(){
 				this.ismask=false;
-			},
-			bindStuNum(){
-				let that=this;
-				if(that.card_num===''){
-					return uni.showToast({
-						title:'请填写学号',
-						icon:'none'
-					})
-				}
-				if(that.card_num.length!==12){
-					return uni.showToast({
-						title:'学号长度为12',
-						icon:'none'
-					})
-				}
-				this.$api.bindNum({
-					stuNum:that.card_num,
-					sessionKey:that.sessionKey,
-					userName:that.userInfo.userName,
-					userHead:that.userInfo.userHead
-				}).then(res=>{
-					that.getstuNum({stuNum:that.card_num});
-					uni.showToast({
-						title: res.msg
-					})
-					that.card_num='';
-					that.ismask=false;
-				})
 			}
 		},
 		onLoad() {

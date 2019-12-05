@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "relation": "/components/publish/relationType"
-  },
-  "component": true
-}
