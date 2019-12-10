@@ -42,7 +42,10 @@
 				ismask:false,
 				qqQun:'750503541',
 				card_num:'',
-				animationData:{}
+				animationData:{},
+				limit:8,
+				count:null,
+				page:1
 			}
 		},
 		computed:{
@@ -89,12 +92,39 @@
 			},
 			isMask(){
 				this.ismask=false;
+			},
+			getIndexData(){
+				this.$api.getData({
+					page:this.page,
+					limit:this.limit,
+					sessionKey:this.sessionKey,
+					sort:2
+				}).then(res=>{
+					console.log(res)
+					if(res.code===401){
+						uni.showToast({
+							title:'登录已失效,请重新登录',
+							icon:'none'
+						})
+						return uni.reLaunch({
+							url:'/pages/login/login'
+						})
+					}
+					this.count=res.count;
+					uni.hideNavigationBarLoading()
+					uni.hideLoading();
+					this.$store.dispatch('getData',{sessionKey:this.sessionKey,count:this.count,limit:this.limit});
+				})
 			}
 		},
 		onLoad() {
 			this.$api.isLogin();
 		},
 		onShow() {
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
+			this.getIndexData();
 			let animation=uni.createAnimation({
 				duration:800,
 				timingFunction:'ease-in-out'

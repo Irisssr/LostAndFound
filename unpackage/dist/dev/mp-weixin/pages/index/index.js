@@ -159,7 +159,7 @@ var _time = _interopRequireDefault(__webpack_require__(/*! @/common/time.js */ 1
 
 
 
-var _util = _interopRequireDefault(__webpack_require__(/*! @/common/util.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var ListItem = function ListItem() {return Promise.all(/*! import() | components/listItem */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/listItem")]).then(__webpack_require__.bind(null, /*! @/components/listItem.vue */ 141));};var Search = function Search() {return __webpack_require__.e(/*! import() | components/index/search */ "components/index/search").then(__webpack_require__.bind(null, /*! @/components/index/search.vue */ 148));};var ClassList = function ClassList() {return __webpack_require__.e(/*! import() | components/index/classList */ "components/index/classList").then(__webpack_require__.bind(null, /*! @/components/index/classList.vue */ 153));};var SortTap = function SortTap() {return __webpack_require__.e(/*! import() | components/index/sorttap */ "components/index/sorttap").then(__webpack_require__.bind(null, /*! @/components/index/sorttap.vue */ 160));};var Swiper = function Swiper() {return __webpack_require__.e(/*! import() | components/index/swiper */ "components/index/swiper").then(__webpack_require__.bind(null, /*! @/components/index/swiper.vue */ 167));};var NoticeBar = function NoticeBar() {return __webpack_require__.e(/*! import() | components/index/noticeBar */ "components/index/noticeBar").then(__webpack_require__.bind(null, /*! @/components/index/noticeBar.vue */ 174));};var _default =
+var _util = _interopRequireDefault(__webpack_require__(/*! @/common/util.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var ListItem = function ListItem() {return Promise.all(/*! import() | components/listItem */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/listItem")]).then(__webpack_require__.bind(null, /*! @/components/listItem.vue */ 139));};var Search = function Search() {return __webpack_require__.e(/*! import() | components/index/search */ "components/index/search").then(__webpack_require__.bind(null, /*! @/components/index/search.vue */ 146));};var ClassList = function ClassList() {return __webpack_require__.e(/*! import() | components/index/classList */ "components/index/classList").then(__webpack_require__.bind(null, /*! @/components/index/classList.vue */ 151));};var SortTap = function SortTap() {return __webpack_require__.e(/*! import() | components/index/sorttap */ "components/index/sorttap").then(__webpack_require__.bind(null, /*! @/components/index/sorttap.vue */ 158));};var Swiper = function Swiper() {return __webpack_require__.e(/*! import() | components/index/swiper */ "components/index/swiper").then(__webpack_require__.bind(null, /*! @/components/index/swiper.vue */ 165));};var NoticeBar = function NoticeBar() {return __webpack_require__.e(/*! import() | components/index/noticeBar */ "components/index/noticeBar").then(__webpack_require__.bind(null, /*! @/components/index/noticeBar.vue */ 172));};var _default =
 {
   data: function data() {
     return {
@@ -220,6 +220,15 @@ var _util = _interopRequireDefault(__webpack_require__(/*! @/common/util.js */ 2
         sessionKey: that.sessionKey,
         sort: 2 }).
       then(function (res) {
+        if (res.code === 401) {
+          uni.showToast({
+            title: '登录已失效,请重新登录',
+            icon: 'none' });
+
+          return uni.reLaunch({
+            url: '/pages/login/login' });
+
+        }
         _this.count = res.count;
         _this.list = res.goods;
         uni.hideNavigationBarLoading();
@@ -328,7 +337,11 @@ var _util = _interopRequireDefault(__webpack_require__(/*! @/common/util.js */ 2
     }
   },
   onShow: function onShow() {
-    this.$api.isLogin();
+    // this.$api.isLogin();
+    console.log(this.sessionKey);
+    if (!this.sessionKey) {
+      this.$api.isSession();
+    }
     this.page = 1;
     this.decpage = 1;
     this.getDataList();

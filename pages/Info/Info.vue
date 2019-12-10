@@ -7,13 +7,12 @@
 			<!-- 底部弹起分享 -->
 			<view class="bottom">
 				<view class="savePhone">
-					<button type="default"@tap="savePhone">保存图片</button>
+					<button type="default" @tap="savePhone">保存图片</button>
 				</view>
 			</view>
 		</view>
 		<!-- 发布者信息 -->
-		<!-- 已被认领的 -->
-		<view class="avatar" @tap="toThePublish(pubUser.userOpenid)" v-if="status!=='no'">
+		<view class="avatar" @tap="toThePublish(pubUser.userOpenid)" v-if="ismy==='true'">
 			<view class="avatar_left">
 				<image :src="pubUser.userHead" mode="aspectFit"></image>
 			</view>
@@ -22,8 +21,7 @@
 				<view class="avatar_time">{{dataInfo.time}}</view>
 			</view>
 		</view>
-		<!-- 未被认领的 -->
-		<view class="avatar" @tap="toThePublish(dataInfo.openid)" v-else>
+		<view class="avatar" @tap="toThePublish(dataInfo.user.userOpenid)" v-else>
 			<view class="avatar_left">
 				<image :src="dataInfo.user.userHead" mode="aspectFit"></image>
 			</view>
@@ -69,17 +67,17 @@
 			return {
 				id:'',
 				mask:false,
-				text:'222222',
 				base64:null,
 				relate:'',
 				reltype:'',
 				image:[],
 				app:'',
-				isfind:false,
+				ismy:null,
 				canvasHeight:400,
 				animationData:{},
 				status:null,
-				dataInfo:{}
+				dataInfo:{},
+				indexuser:{}
 			}
 		},
 		computed:{
@@ -228,6 +226,15 @@
 								sessionKey:this.sessionKey,
 								gid:this.dataInfo.id
 							}).then(res=>{
+								if(res.code===401){
+									uni.showToast({
+										title:'登录已失效,请重新登录',
+										icon:'none'
+									})
+									return uni.reLaunch({
+										url:'/pages/login/login'
+									})
+								}
 								this.isfind=true;
 								uni.showToast({
 									title:res.msg
@@ -240,10 +247,10 @@
 			isData(){
 				if(this.status==='no'){
 					this.dataInfo=this.goodsList.find(item=>item.id==this.id);
-					this.app=this.dataInfo.user.userApp
+					this.app=this.dataInfo.user.userApp;
 				}else{
 					this.dataInfo=this.myMsgList.find(item=>item.id==this.id);
-					this.app=this.pubUser.userApp;
+					this.app=this.dataInfo.user.userApp;
 				}
 				let str=this.dataInfo.relation.split(":");
 				this.relate=str[1];
@@ -252,10 +259,16 @@
 			}
 		},
 		onLoad(e){
-			this.$api.isLogin();
 			this.id=e.id;
 			this.status=e.status;
 			this.isData();
+			this.ismy=e.ismy;
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		},
 		onShareAppMessage(e) {
 			this.mask=false;

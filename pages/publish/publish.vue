@@ -63,7 +63,8 @@
 				text:'',
 				title:'',
 				relationType:'',
-				classfiyType:'learn'
+				classfiyType:'learn',
+				image:null
 			}
 		},
 		computed:{
@@ -78,16 +79,6 @@
 			Relation
 		},
 		methods:{
-			lostSubmit(){//发布
-				let that=this;
-				if(!that.sessionKey){
-					uni.showToast({
-						title: '请先完成授权!',
-						icon:'none'
-					});
-					return false;
-				}
-			},
 			getRelation(data){
 				this.relationType=data.relationType;
 			},
@@ -99,6 +90,7 @@
 				uni.chooseImage({
 					count:1,
 					success:(res)=>{
+						console.log(res)
 						that.imageList=res.tempFilePaths
 					}
 				})
@@ -114,14 +106,15 @@
 				this.imageList.splice(index,1)
 			},
 			lostSubmit(){//发布
-				console.log(this.msgType)
 				let that=this;
 				if(!that.sessionKey){
 					uni.showToast({
 						title: '请先完成授权!',
 						icon:'none'
 					});
-					return false;
+					return uni.reLaunch({
+						url:'/pages/login/login'
+					})
 				}
 				if(that.title===''){
 					return uni.showToast({
@@ -158,9 +151,8 @@
 					title:'信息发送中...'
 				})
 				if(that.imageList.length==0){
-					let image='';
 					uni.downloadFile({
-						url:'https://gongsir.club:8081/uploadImg/logo.jpg',
+						url:'https://www.gongsir.club:8081/uploadImg/logo.jpg',
 						success:res=>{
 							this.$api.pubGood(res.tempFilePath,{
 								sessionKey:that.sessionKey,
@@ -170,6 +162,7 @@
 								goodClass:that.classfiyType,
 								relation:that.relationType+':'+that.relation
 							}).then(res=>{
+								uni.hideLoading();
 								that.imgList=[]
 								that.title='';
 								that.text='';
@@ -190,22 +183,23 @@
 						goodClass:that.classfiyType,
 						relation:that.relationType+':'+that.relation
 					}).then(res=>{
-						console.log(res)
-						that.imgList=[]
 						that.title='';
 						that.text='';
 						that.imageList=[];
 						that.relation='';
+						uni.hideLoading();
 						uni.showToast({
 							title: JSON.parse(res).msg
 						});
 					})
-					uni.hideLoading()
 				}
 			}
 		},
-		onLoad() {
-			this.$api.isLogin();
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>

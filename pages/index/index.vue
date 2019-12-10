@@ -94,6 +94,15 @@
 					sessionKey:that.sessionKey,
 					sort:2
 				}).then(res=>{
+					if(res.code===401){
+						uni.showToast({
+							title:'登录已失效,请重新登录',
+							icon:'none'
+						})
+						return uni.reLaunch({
+							url:'/pages/login/login'
+						})
+					}
 					this.count=res.count;
 					this.list=res.goods;
 					uni.hideNavigationBarLoading()
@@ -202,7 +211,11 @@
 			}
 		},
 		onShow() {
-			this.$api.isLogin();
+			// this.$api.isLogin();
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 			this.page=1;
 			this.decpage=1;
 			this.getDataList();

@@ -80,6 +80,8 @@
 			},
 			sendCardType(type){
 				this.getCardType(type)
+				this.myName='';
+				this.myNum='';
 			},
 			postPhone(){
 				let that=this;
@@ -89,7 +91,7 @@
 						that.photo=res.tempFilePaths;
 						this.$api.pubCor(that.photo[0],{
 							sessionKey:that.sessionKey,
-							type:that.cardType	
+							type:that.cardtype	
 						}).then(res=>{
 							if(that.cardtype==='stuCard'){
 								let data=JSON.parse(res).data.ret
@@ -135,11 +137,9 @@
 							title:'手机号有误,请重填!',
 							icon:'none'
 						})
-						console.log(that.relation)
 						return false;
 					}
 				}
-				console.log(that.cardtype)
 				this.$api.pubCard({
 					sessionKey:that.sessionKey,
 					cardType:that.cardtype,

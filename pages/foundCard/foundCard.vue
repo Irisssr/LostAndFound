@@ -89,6 +89,12 @@
 		onLoad(e) {
 			this.id=e.id;
 			this.getMsg();
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>

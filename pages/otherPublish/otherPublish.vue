@@ -11,6 +11,7 @@
 				<view class="pub_msgList" v-if="goods">
 					<GoodInfo v-for="(item,index) in goods"
 					:goodMsg="item"
+					:ismy="true"
 					:key="index"></GoodInfo>
 				</view>
 				<view class="pub_loadingText">{{loadingText1}}</view>
@@ -68,10 +69,11 @@
 		computed:{
 			...mapState({
 				goodsList:state=>state.goodsList,
-				sessionKey:state=>state.sessionKey
+				sessionKey:state=>state.sessionKey,
+				myMsgList:state=>state.myMsgList
 			}),
 			userInfo(){
-				return this.goodsList.find(item=>item.openid===this.openid)
+				return this.myMsgList.find(item=>item.openid===this.openid)
 			}
 		},
 		methods:{
@@ -229,13 +231,18 @@
 			}
 		},
 		onLoad(e){
-			this.$api.isLogin();
 			if(e.app==='qq'){
 				this.openid=e.openid+"=";
 			}else if(e.app==='wx'){
 				this.openid=e.openid+"==";			
 			}
 			this.getData();
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>

@@ -14,7 +14,7 @@
 			</view>
 			<span class="iconfont cut" @tap="cut" v-if="relation[0]=='qq'">&#xe606;复制</span>
 			<span class="iconfont cut" @tap="cut" v-if="relation[0]=='tel'">&#xe603;复制</span>
-			<span v-show="ismy" class="carddel" @tap="cardDel(cardsList.id)">删除</span>
+			<span v-show="my" class="carddel" @tap="cardDel(cardsList.id)">删除</span>
 		</view>
 	</view>
 </template>
@@ -25,7 +25,7 @@
 				type:Object,
 				default:null
 			},
-			ismy:{
+			my:{
 				type:Boolean,
 				default:false
 			}

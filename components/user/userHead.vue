@@ -32,13 +32,10 @@
 		methods:{
 			alterNum(){
 				uni.showModal({
-					title:'更改学号',
+					title:'注意',
 					content:'更改学号请联系管理员'
 				})
 			}
-		},
-		created() {
-			this.$api.isLogin();
 		}
 	}
 </script>

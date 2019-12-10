@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tabarHead = function tabarHead() {return __webpack_require__.e(/*! import() | components/tabarHead */ "components/tabarHead").then(__webpack_require__.bind(null, /*! @/components/tabarHead.vue */ 181));};var PubClassify = function PubClassify() {return __webpack_require__.e(/*! import() | components/publish/pubClassify */ "components/publish/pubClassify").then(__webpack_require__.bind(null, /*! @/components/publish/pubClassify.vue */ 188));};var Relation = function Relation() {return __webpack_require__.e(/*! import() | components/publish/relationType */ "components/publish/relationType").then(__webpack_require__.bind(null, /*! @/components/publish/relationType.vue */ 195));};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tabarHead = function tabarHead() {return __webpack_require__.e(/*! import() | components/tabarHead */ "components/tabarHead").then(__webpack_require__.bind(null, /*! @/components/tabarHead.vue */ 179));};var PubClassify = function PubClassify() {return __webpack_require__.e(/*! import() | components/publish/pubClassify */ "components/publish/pubClassify").then(__webpack_require__.bind(null, /*! @/components/publish/pubClassify.vue */ 186));};var Relation = function Relation() {return __webpack_require__.e(/*! import() | components/publish/relationType */ "components/publish/relationType").then(__webpack_require__.bind(null, /*! @/components/publish/relationType.vue */ 193));};var _default =
 
 
 
@@ -185,7 +185,8 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
       text: '',
       title: '',
       relationType: '',
-      classfiyType: 'learn' };
+      classfiyType: 'learn',
+      image: null };
 
   },
   computed: _objectSpread({},
@@ -199,17 +200,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     PubClassify: PubClassify,
     Relation: Relation },
 
-  methods: _defineProperty({
-    lostSubmit: function lostSubmit() {//发布
-      var that = this;
-      if (!that.sessionKey) {
-        uni.showToast({
-          title: '请先完成授权!',
-          icon: 'none' });
-
-        return false;
-      }
-    },
+  methods: {
     getRelation: function getRelation(data) {
       this.relationType = data.relationType;
     },
@@ -221,6 +212,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
       uni.chooseImage({
         count: 1,
         success: function success(res) {
+          console.log(res);
           that.imageList = res.tempFilePaths;
         } });
 
@@ -234,100 +226,102 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     },
     deleteImg: function deleteImg(index) {
       this.imageList.splice(index, 1);
-    } }, "lostSubmit", function lostSubmit()
-  {var _this = this; //发布
-    console.log(this.msgType);
-    var that = this;
-    if (!that.sessionKey) {
-      uni.showToast({
-        title: '请先完成授权!',
-        icon: 'none' });
-
-      return false;
-    }
-    if (that.title === '') {
-      return uni.showToast({
-        title: '请填写标题',
-        icon: 'none' });
-
-      return false;
-    }
-
-    if (that.classfiyType === '') {
-      return uni.showToast({
-        title: '请选择类别',
-        icon: 'none' });
-
-      return false;
-    }
-    if (that.relation === '' || that.relationType === '') {
-      return uni.showToast({
-        title: '请填写联系方式',
-        icon: 'none' });
-
-      return false;
-    }
-    if (that.relationType === 'tel') {
-      if (!/^1[3456789]\d{9}/.test(that.relation)) {
+    },
+    lostSubmit: function lostSubmit() {var _this = this; //发布
+      var that = this;
+      if (!that.sessionKey) {
         uni.showToast({
-          title: '手机号有误,请重填!',
+          title: '请先完成授权!',
+          icon: 'none' });
+
+        return uni.reLaunch({
+          url: '/pages/login/login' });
+
+      }
+      if (that.title === '') {
+        return uni.showToast({
+          title: '请填写标题',
           icon: 'none' });
 
         return false;
       }
+
+      if (that.classfiyType === '') {
+        return uni.showToast({
+          title: '请选择类别',
+          icon: 'none' });
+
+        return false;
+      }
+      if (that.relation === '' || that.relationType === '') {
+        return uni.showToast({
+          title: '请填写联系方式',
+          icon: 'none' });
+
+        return false;
+      }
+      if (that.relationType === 'tel') {
+        if (!/^1[3456789]\d{9}/.test(that.relation)) {
+          uni.showToast({
+            title: '手机号有误,请重填!',
+            icon: 'none' });
+
+          return false;
+        }
+      }
+      uni.showLoading({
+        title: '信息发送中...' });
+
+      if (that.imageList.length == 0) {
+        uni.downloadFile({
+          url: 'https://www.gongsir.club:8081/uploadImg/logo.jpg',
+          success: function success(res) {
+            _this.$api.pubGood(res.tempFilePath, {
+              sessionKey: that.sessionKey,
+              goodType: that.msgType,
+              goodTitle: that.title,
+              goodTexts: that.text,
+              goodClass: that.classfiyType,
+              relation: that.relationType + ':' + that.relation }).
+            then(function (res) {
+              uni.hideLoading();
+              that.imgList = [];
+              that.title = '';
+              that.text = '';
+              that.imageList = [];
+              that.relation = '';
+              uni.showToast({
+                title: JSON.parse(res).msg });
+
+            });
+          } });
+
+      } else {
+        this.$api.pubGood(that.imageList[0], {
+          sessionKey: that.sessionKey,
+          goodType: that.msgType,
+          goodTitle: that.title,
+          goodTexts: that.text,
+          goodClass: that.classfiyType,
+          relation: that.relationType + ':' + that.relation }).
+        then(function (res) {
+          that.title = '';
+          that.text = '';
+          that.imageList = [];
+          that.relation = '';
+          uni.hideLoading();
+          uni.showToast({
+            title: JSON.parse(res).msg });
+
+        });
+      }
+    } },
+
+  onShow: function onShow() {
+    console.log(this.sessionKey);
+    if (!this.sessionKey) {
+      this.$api.isSession();
     }
-    uni.showLoading({
-      title: '信息发送中...' });
-
-    if (that.imageList.length == 0) {
-      var image = '';
-      uni.downloadFile({
-        url: 'https://gongsir.club:8081/uploadImg/logo.jpg',
-        success: function success(res) {
-          _this.$api.pubGood(res.tempFilePath, {
-            sessionKey: that.sessionKey,
-            goodType: that.msgType,
-            goodTitle: that.title,
-            goodTexts: that.text,
-            goodClass: that.classfiyType,
-            relation: that.relationType + ':' + that.relation }).
-          then(function (res) {
-            that.imgList = [];
-            that.title = '';
-            that.text = '';
-            that.imageList = [];
-            that.relation = '';
-            uni.showToast({
-              title: JSON.parse(res).msg });
-
-          });
-        } });
-
-    } else {
-      this.$api.pubGood(that.imageList[0], {
-        sessionKey: that.sessionKey,
-        goodType: that.msgType,
-        goodTitle: that.title,
-        goodTexts: that.text,
-        goodClass: that.classfiyType,
-        relation: that.relationType + ':' + that.relation }).
-      then(function (res) {
-        console.log(res);
-        that.imgList = [];
-        that.title = '';
-        that.text = '';
-        that.imageList = [];
-        that.relation = '';
-        uni.showToast({
-          title: JSON.parse(res).msg });
-
-      });
-      uni.hideLoading();
-    }
-  }),
-
-  onLoad: function onLoad() {
-    this.$api.isLogin();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

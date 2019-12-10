@@ -28,6 +28,7 @@
 		},
 		computed:{
 			...mapState({
+				sessionKey:state=>state.sessionKey,
 				msgType:state=>state.msgType
 			})
 		},
@@ -36,15 +37,14 @@
 			LostCard,
 			FoundCard
 		},
-		onLoad() {
-			this.$api.isLogin();
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>
 
 <style scoped>
-	/* .studCard{
-		width: 100%;
-		height:100%;
-	} */
 </style>

@@ -65,7 +65,13 @@ page{
 }
 .myright .mytitle.data-v-133b445c{
 	line-height: 40px;
-	padding-left:5px;
+	height: 40px;
+	overflow: hidden;
+	font-size: 14px;
+	padding:0 5px;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
 	border-bottom:1px dashed #ccc;
 	display: -webkit-box;
 	display: -webkit-flex;

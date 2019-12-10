@@ -4,6 +4,15 @@ import http from '@/request/http.js'
 const apis={}
 
 apis.isLogin=()=>http.checkSession();
+apis.isSession=()=>{
+	uni.showToast({
+		title:'登录已失效,请重新登录',
+		icon:'none'
+	})
+	uni.reLaunch({
+		url:'/pages/login/login'
+	})
+}
 // index
 apis.onlogin=(params)=>http.request('/user/login','POST',params);
 apis.getData=(params)=>http.request('/good/all','GET',params);

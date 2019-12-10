@@ -8,6 +8,7 @@ const state={
 	message:{},
 	dataList:[],
 	myMsgList:[],
+	findList:[],
 	pubUser:{}
 }
 

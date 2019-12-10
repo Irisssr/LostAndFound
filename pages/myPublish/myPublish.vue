@@ -10,6 +10,7 @@
 					<GoodInfo v-for="(item,index) in goods" :key="index"
 					:goodMsg="item"
 					:ismy="true"
+					:my="true"
 					@sendCardId="getCardId"></GoodInfo>
 				</view>
 				<view class="pub_loadingText">{{loadingText1}}</view> 
@@ -22,7 +23,7 @@
 				<view v-if="goods" class="pub_cardList">
 					<GoodCard v-for="(item,index) in goods"  :key="index"
 					:cardsList="item"
-					:ismy="true"
+					:my="true"
 					@sendCardId="getIdCard"></GoodCard>
 				</view>
 				<view class="pub_loadingText">{{loadingText2}}</view> 
@@ -101,7 +102,6 @@
 			},
 			getCardId(data){//删除普通信息
 				let that=this;
-				console.log(data.id)
 				uni.showModal({
 					title:'是否确定删除',
 					content:'删除的数据不再恢复',
@@ -244,7 +244,10 @@
 			}
 		},
 		onLoad() {
-			this.$api.isLogin();
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
+			// this.$api.isLogin();
 			this.getAllData();
 		},
 		onReachBottom() {
@@ -256,6 +259,12 @@
 				setTimeout(()=>{
 					this.getMoreCard()
 				},500)
+			}
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
 			}
 		},
 		onPullDownRefresh() {

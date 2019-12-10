@@ -65,9 +65,6 @@
 
 
 
-
-
-
 /* 内容 */
 .content-box.data-v-0243f954{
 	width: 100%;
@@ -156,11 +153,37 @@
 	    -ms-flex-pack:justify;
 	        justify-content:space-between;
 	padding-left:5px;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	overflow: hidden;
+	font-size: 16px;
+}
+.avatar-text .avatar-name.data-v-0243f954{
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 40px;
+	padding:0 5px;
+	font-size: 14px;
 }
 .avatar-text .avatar-time.data-v-0243f954{
 	font-size: 12px;
 	color: #828282;
 	padding-right:10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 40px;
+	padding: 0 5px;
 }
 .text-bottom.data-v-0243f954{
 	padding:2px;

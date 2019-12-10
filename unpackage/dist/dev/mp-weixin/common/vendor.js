@@ -8415,7 +8415,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": { "navigationBarTitleText": "登录", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/about/about": { "navigationBarTitleText": "关于我们", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "steps": "/components/user/step" } }, "pages/index/index": { "navigationBarTitleText": "首页", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "list-item": "/components/listItem", "search": "/components/index/search", "class-list": "/components/index/classList", "sort-tap": "/components/index/sorttap", "swiper": "/components/index/swiper", "notice-bar": "/components/index/noticeBar" } }, "pages/publish/publish": { "navigationBarTitleText": "信息发布", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "tabar-head": "/components/tabarHead", "pub-classify": "/components/publish/pubClassify", "relation": "/components/publish/relationType" } }, "pages/myPublish/myPublish": { "navigationBarTitleText": "我的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "type-tabbar": "/components/user/typetabbar", "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo" } }, "pages/studentCard/studentCard": { "navigationBarTitleText": "学生卡", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "title-head": "/components/tabarHead", "lost-card": "/components/card/lostCard", "found-card": "/components/card/foundCard" } }, "pages/Info/Info": { "navigationBarTitleText": "物品详情", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/user/user": { "navigationBarTitleText": "我的", "navigationBarBackgroundColor": "#4588aa", "usingComponents": { "user-head": "/components/user/userHead" } }, "pages/otherPublish/otherPublish": { "navigationBarTitleText": "ta的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo", "user-head": "/components/user/userHead", "type-tabbar": "/components/user/typetabbar" } }, "pages/filterItem/filterItem": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "search": "/components/index/search", "list-item": "/components/listItem" } }, "pages/foundCard/foundCard": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "usingComponents": {} }, "pages/classifyList/classifyList": { "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "list-item": "/components/listItem", "search": "/components/index/search" } }, "pages/myFind/myFind": { "navigationBarTitleText": "我的认领", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true, "usingComponents": { "type-tabbar": "/components/user/typetabbar", "good-card": "/components/user/goodCard", "good-info": "/components/user/goodInfo" } } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": { "navigationBarTitleText": "登录", "navigationBarBackgroundColor": "#4588aa" }, "pages/about/about": { "navigationBarTitleText": "关于我们", "navigationBarBackgroundColor": "#4588aa" }, "pages/index/index": { "navigationBarTitleText": "首页", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/publish/publish": { "navigationBarTitleText": "信息发布", "navigationBarBackgroundColor": "#4588aa" }, "pages/myPublish/myPublish": { "navigationBarTitleText": "我的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/studentCard/studentCard": { "navigationBarTitleText": "学生卡", "navigationBarBackgroundColor": "#4588aa" }, "pages/Info/Info": { "navigationBarTitleText": "物品详情", "navigationBarBackgroundColor": "#4588aa" }, "pages/user/user": { "navigationBarTitleText": "我的", "navigationBarBackgroundColor": "#4588aa" }, "pages/otherPublish/otherPublish": { "navigationBarTitleText": "ta的发布", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/filterItem/filterItem": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/foundCard/foundCard": { "navigationBarTitleText": "搜索结果", "navigationBarBackgroundColor": "#4588aa" }, "pages/classifyList/classifyList": { "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true }, "pages/myFind/myFind": { "navigationBarTitleText": "我的认领", "navigationBarBackgroundColor": "#4588aa", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9533,6 +9533,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   message: {},
   dataList: [],
   myMsgList: [],
+  findList: [],
   pubUser: {} };var _default =
 
 
@@ -9717,12 +9718,21 @@ actions;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _http = _interopRequireDefault(__webpack_require__(/*! @/request/http.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 接口页面
 
 var apis = {};
 
 apis.isLogin = function () {return _http.default.checkSession();};
+apis.isSession = function () {
+  uni.showToast({
+    title: '登录已失效,请重新登录',
+    icon: 'none' });
+
+  uni.reLaunch({
+    url: '/pages/login/login' });
+
+};
 // index
 apis.onlogin = function (params) {return _http.default.request('/user/login', 'POST', params);};
 apis.getData = function (params) {return _http.default.request('/good/all', 'GET', params);};
@@ -9755,6 +9765,7 @@ apis.cardFun = function (params) {return _http.default.request('/card/found', 'P
 apis.cardData = function (params) {return _http.default.request('/card/find', 'POST', params);};var _default =
 
 apis;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 23 */
@@ -9770,19 +9781,20 @@ apis;exports.default = _default;
 var http = {};
 
 http.checkSession = function () {
-  uni.checkSession({
-    success: function success(res) {
-    },
-    fail: function fail(err) {
-      uni.showToast({
-        title: '登录已失效,请重新登录',
-        icon: 'none' });
-
-      uni.reLaunch({
-        url: '/pages/login/login' });
-
-    } });
-
+  //  uni.checkSession({
+  // 	success:(res)=>{
+  // 		console.log(res)
+  // 	},
+  // 	fail:(err)=>{
+  // 		uni.showToast({
+  // 			title:'登录已失效,请重新登录',
+  // 			icon:'none'
+  // 		})
+  // 		uni.reLaunch({
+  // 			url:'/pages/login/login'
+  // 		})
+  // 	}
+  // })
 };
 
 http.request = function (url, method, data) {
@@ -9795,7 +9807,7 @@ http.request = function (url, method, data) {
   then(function (res) {
     if (res[1].statusCode && res[1].statusCode == 200) {
       return res[1].data;
-    } else if (res[1].statusCode == 401) {
+    } else if (res[1].data.code == 401) {
       uni.showToast({
         title: '登录已失效,请重新登录',
         icon: 'none' });
@@ -9803,8 +9815,7 @@ http.request = function (url, method, data) {
       uni.reLaunch({
         url: '/pages/login/login' });
 
-    } else
-    {
+    } else {
       throw res[1].data;
     }
   }).catch(function (error) {
@@ -9812,13 +9823,6 @@ http.request = function (url, method, data) {
     switch (error.code) {
       case 401:
         console.log(error);
-        uni.showToast({
-          title: '登录已失效,请重新登录',
-          icon: 'none' });
-
-        uni.reLaunch({
-          url: '/pages/login/login' });
-
         break;
       default:
         console.log(error);
@@ -9837,7 +9841,16 @@ http.upload = function (url, file, data) {
   then(function (res) {
     if (res[1].statusCode && res[1].statusCode == 200) {
       return res[1].data;
-    } else {
+    } else if (res[1].data.code == 401) {
+      uni.showToast({
+        title: '登录已失效,请重新登录',
+        icon: 'none' });
+
+      uni.reLaunch({
+        url: '/pages/login/login' });
+
+    } else
+    {
       throw res[1];
     }
   }).catch(function (error) {

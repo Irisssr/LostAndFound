@@ -158,7 +158,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var TypeTabbar = function TypeTabbar() {return __webpack_require__.e(/*! import() | components/user/typetabbar */ "components/user/typetabbar").then(__webpack_require__.bind(null, /*! @/components/user/typetabbar.vue */ 200));};var GoodCard = function GoodCard() {return __webpack_require__.e(/*! import() | components/user/goodCard */ "components/user/goodCard").then(__webpack_require__.bind(null, /*! @/components/user/goodCard.vue */ 207));};var GoodInfo = function GoodInfo() {return __webpack_require__.e(/*! import() | components/user/goodInfo */ "components/user/goodInfo").then(__webpack_require__.bind(null, /*! @/components/user/goodInfo.vue */ 216));};var _default =
+
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var TypeTabbar = function TypeTabbar() {return __webpack_require__.e(/*! import() | components/user/typetabbar */ "components/user/typetabbar").then(__webpack_require__.bind(null, /*! @/components/user/typetabbar.vue */ 198));};var GoodCard = function GoodCard() {return __webpack_require__.e(/*! import() | components/user/goodCard */ "components/user/goodCard").then(__webpack_require__.bind(null, /*! @/components/user/goodCard.vue */ 205));};var GoodInfo = function GoodInfo() {return __webpack_require__.e(/*! import() | components/user/goodInfo */ "components/user/goodInfo").then(__webpack_require__.bind(null, /*! @/components/user/goodInfo.vue */ 214));};var _default =
 
 
 
@@ -225,7 +226,6 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     },
     getCardId: function getCardId(data) {var _this2 = this; //删除普通信息
       var that = this;
-      console.log(data.id);
       uni.showModal({
         title: '是否确定删除',
         content: '删除的数据不再恢复',
@@ -368,7 +368,10 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     } }),
 
   onLoad: function onLoad() {
-    this.$api.isLogin();
+    if (!this.sessionKey) {
+      this.$api.isSession();
+    }
+    // this.$api.isLogin();
     this.getAllData();
   },
   onReachBottom: function onReachBottom() {var _this4 = this;
@@ -380,6 +383,12 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
       setTimeout(function () {
         _this4.getMoreCard();
       }, 500);
+    }
+  },
+  onShow: function onShow() {
+    console.log(this.sessionKey);
+    if (!this.sessionKey) {
+      this.$api.isSession();
     }
   },
   onPullDownRefresh: function onPullDownRefresh() {

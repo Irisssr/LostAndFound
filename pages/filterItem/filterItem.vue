@@ -82,6 +82,12 @@
 			this.$api.isLogin()
 			this.value=e.keyword
 			this.searchKey()
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>

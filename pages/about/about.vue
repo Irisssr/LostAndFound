@@ -18,6 +18,7 @@
 
 <script>
 	import Steps from '@/components/user/step.vue'
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -34,6 +35,11 @@
 		components:{
 			Steps
 		},
+		computed:{
+			...mapState({
+				sessionKey:state=>state.sessionKey
+			})
+		},
 		methods: {
 			copy(){
 				uni.setClipboardData({
@@ -43,6 +49,12 @@
 		},
 		onLoad() {
 			this.$api.isLogin();
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		}
 	}
 </script>

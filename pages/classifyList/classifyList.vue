@@ -113,6 +113,12 @@
 			this.page=1;
 			this.getTypeList()
 		},
+		onShow(){
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
+		}
 	}
 </script>
 

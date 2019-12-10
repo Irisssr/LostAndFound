@@ -47,9 +47,6 @@
 				this.classfiyType=type
 				this.$emit('sendClass',{ classType:type})
 			}
-		},
-		created() {
-			this.$api.isLogin();
 		}
 	}
 </script>

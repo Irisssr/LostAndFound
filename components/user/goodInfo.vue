@@ -9,7 +9,7 @@
 			<!-- <view class="findtext">已被学生{{goodMsg.goodStatus}}认领</view> -->
 			<view class="mybtn">
 				<view class="mytexts">{{ goodMsg.goodTexts}}</view>
-				<view class="delete" v-show="ismy" @tap.stop="remove(goodMsg.id)">删除</view>
+				<view class="delete" v-show="my" @tap.stop="remove(goodMsg.id)">删除</view>
 			</view>
 			<view class="goodType type-lost" v-if="goodMsg.goodType==='lost'">
 				失物招领
@@ -32,6 +32,10 @@
 			ismy:{
 				type:Boolean,
 				default:false
+			},
+			my:{
+				type:Boolean,
+				default:false
 			}
 		},
 		data(){
@@ -43,13 +47,15 @@
 		},
 		computed:{
 			...mapState({
-				sessionKey:state=>state.sessionKey
+				sessionKey:state=>state.sessionKey,
+				userInfo:state=>state.userInfo,
+				findList:state=>state.findList,
 			})
 		},
 		methods:{
 			toInfo(data){
 				uni.navigateTo({
-					url:'../Info/Info?id='+data.id+'&status='+data.status
+					url:'../Info/Info?id='+data.id+'&status='+data.status+'&ismy='+this.ismy
 				})
 			},
 			remove(id){
@@ -58,6 +64,7 @@
 		},
 		created() {
 			this.$api.isLogin();
+			// console.log(this.goodMsg.user)
 		}
 	}
 </script>
@@ -116,7 +123,11 @@
 }
 .myright .mytitle{
 	line-height: 40px;
-	padding-left:5px;
+	height: 40px;
+	overflow: hidden;
+	font-size: 14px;
+	padding:0 5px;
+	flex-wrap: nowrap;
 	border-bottom:1px dashed #ccc;
 	display: flex;
 	justify-content: space-between;

@@ -56,8 +56,7 @@
 		},
 		methods: {
 			...mapMutations([
-				'getMsgList',
-				'getpubUser'
+				'getMsgList'
 			]),
 			getTabbar(data){
 				if(data.typetabbar){
@@ -73,16 +72,23 @@
 				this.$api.findGood({
 					sessionKey:this.sessionKey
 				}).then(res=>{
+					if(res.code===401){
+						uni.showToast({
+							title:'登录已失效,请重新登录',
+							icon:'none'
+						})
+						return uni.reLaunch({
+							url:'/pages/login/login'
+						})
+					}
 					uni.showToast({
 						title:res.msg,
 						icon:'none'
 					})
-					console.log(res)
 					this.getMsgList(res.goods)
-					this.getpubUser(res.goods[0].user)
 					this.goods=res.goods
-					uni.hideLoading()
 				})
+				uni.hideLoading()
 			},
 			getMyCard(){
 				uni.showLoading({
@@ -91,15 +97,14 @@
 				this.$api.findCard({
 					sessionKey:this.sessionKey
 				}).then(res=>{
-					console.log(res)
 					uni.showToast({
 						title:res.msg,
 						icon:'none'
 					})
 					this.getMsgList(res.cards)
 					this.goods=res.cards
-					uni.hideLoading()
 				})
+				uni.hideLoading()
 			},
 			getCard(){//动画
 				this.goods=[];
@@ -142,6 +147,12 @@
 		onLoad() {
 			this.$api.isLogin();
 			this.getData()
+		},
+		onShow() {
+			console.log(this.sessionKey)
+			if(!this.sessionKey){
+				this.$api.isSession()
+			}
 		},
 		onPullDownRefresh() {
 			if(this.type==='msg'){

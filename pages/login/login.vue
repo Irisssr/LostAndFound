@@ -77,6 +77,7 @@
 							headImg:user.avatarUrl,
 							app:'wx'
 						}).then(res=>{
+							console.log(res)
 							uni.showToast({
 								title:res.msg,
 								icon:'none'
@@ -197,8 +198,8 @@
 				this.animationData2=animation2.export();
 			}
 		},
-		onLoad() {
-			this.isuser();
+		onShow() {
+			this.isuser()
 		}
 	}
 </script>

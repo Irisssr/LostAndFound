@@ -53,9 +53,6 @@
 			}
 		},
 		computed:{
-			...mapState({
-					sessionKey:state=>state.sessionKey
-				}),
 			time(){
 				let stamp=Time.getMyUninx(this.userItem.time)
 				return Time.getFormatTime(stamp);
@@ -126,11 +123,26 @@
 		display: flex;
 		justify-content:space-between;
 		padding-left:5px;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		font-size: 16px;
+	}
+	.avatar-text .avatar-name{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		flex-wrap: nowrap;
+		display: flex;
+		height: 40px;
+		padding:0 5px;
+		font-size: 14px;
 	}
 	.avatar-text .avatar-time{
 		font-size: 12px;
 		color: #828282;
 		padding-right:10px;
+		display: flex;
+		height: 40px;
+		padding: 0 5px;
 	}
 	.text-bottom{
 		padding:2px;

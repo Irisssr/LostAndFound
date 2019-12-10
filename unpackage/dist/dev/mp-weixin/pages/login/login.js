@@ -203,6 +203,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
             headImg: user.avatarUrl,
             app: 'wx' }).
           then(function (res) {
+            console.log(res);
             uni.showToast({
               title: res.msg,
               icon: 'none' });
@@ -323,7 +324,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
       this.animationData2 = animation2.export();
     } }),
 
-  onLoad: function onLoad() {
+  onShow: function onShow() {
     this.isuser();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
