@@ -29,6 +29,13 @@
 				<span class="iconfont">&#xe8b0;</span>
 				<span>分享该小程序</span>
 			</button>
+			<button class="listItem"
+				open-type="contact"
+				send-message-title="客服服务"
+				@tap="toAdmin">
+				<span class="iconfont">&#xe62e;</span>
+				<span>联系客服</span>
+			</button>
 		</view>
 	</view>
 </template>
@@ -61,6 +68,9 @@
 			...mapMutations([
 				'getstuNum'
 			]),
+			toAdmin(){
+				console.log('hi');
+			},
 			getStuNum(data){
 				this.ismask=data.isNum;
 			},
@@ -100,7 +110,6 @@
 					sessionKey:this.sessionKey,
 					sort:2
 				}).then(res=>{
-					console.log(res)
 					if(res.code===401){
 						uni.showToast({
 							title:'登录已失效,请重新登录',

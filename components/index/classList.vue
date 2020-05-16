@@ -1,5 +1,5 @@
 <template>
-	<view class="classify">
+	<view class="classify bgwhite">
 		<ul>
 			<li @tap="toClassList('learn')">
 				<view class="study"></view>
@@ -34,6 +34,7 @@
 </script>
 
 <style scoped>
+	.bgwhite{		background-color: #fff;	}
 /* 分类 */
 	.classify{
 		height: 60px;

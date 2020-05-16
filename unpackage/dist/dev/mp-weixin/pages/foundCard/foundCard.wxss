@@ -7,8 +7,7 @@
 }
 .infoBtn button.data-v-de2c1218{
 	background: #fff;
-	-webkit-box-shadow: 0px 0px 5px #ccc;
-	        box-shadow: 0px 0px 5px #ccc;
+	box-shadow: 0px 0px 5px #ccc;
 	margin:40px 0;
 	color:#346680;
 }

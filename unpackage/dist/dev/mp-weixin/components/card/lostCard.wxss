@@ -1,15 +1,19 @@
 
+.bgwhite.data-v-1c511c00{
+	background-color: #fff;
+}
 .card.data-v-1c511c00{
 	height: 40px;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
-	    -ms-flex-pack: justify;
 	        justify-content: space-between;
-	padding:0 50px;
+	padding:10px 50px;
 	margin:20px 0;
 }
 .card view.data-v-1c511c00{

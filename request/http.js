@@ -2,23 +2,6 @@ import config from '@/request/config.js'
 
 const http={} 
 
-http.checkSession=()=>{
-	//  uni.checkSession({
-	// 	success:(res)=>{
-	// 		console.log(res)
-	// 	},
-	// 	fail:(err)=>{
-	// 		uni.showToast({
-	// 			title:'登录已失效,请重新登录',
-	// 			icon:'none'
-	// 		})
-	// 		uni.reLaunch({
-	// 			url:'/pages/login/login'
-	// 		})
-	// 	}
-	// })
-}
-
 http.request=(url,method,data)=>{
 	return uni.request({
 		url:config.baseURL+url,
@@ -41,7 +24,6 @@ http.request=(url,method,data)=>{
 			throw res[1].data
 		}
 	}).catch(error=>{
-		console.log(error)
 		switch(error.code){
 			case 401:
 				console.log(error)

@@ -1,8 +1,5 @@
 <template>
 	<view class="listening">
-		<view class="stuCard_box">
-			<view>输入证件号后,后台为您监听,若找到信息会自动为您推送消息模板</view>
-		</view>
 		<text class="listen">选择监听的证件号类型</text>
 		<view class="card">
 			<view class="stucard" 
@@ -12,14 +9,17 @@
 				:class="cardtype==='idCard'?'selected':''"
 				@tap="sendCardType('idCard')">身份证</view>
 		</view>
-		<form @submit="formSubmit" report-submit-timeout="10000"  report-submit="true" >
+		<view class="subcard">			
 			<view class="stuCard_text">
 				<text>证件号:</text>
-				<input type="idcard" name="input" placeholder="输入你需要监听的证件号"
+				<input type="idcard" resize="true" name="input" placeholder="输入你需要监听的证件号"
 					v-model="listen_num"/>
 			</view>
-			<button type="default" form-type="submit">确认监听</button>
-		</form>
+			<view class="subBtn" @tap="subMsg">
+				<i class="iconfont">&#xe622;</i>
+				<span>订阅消息</span>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -40,6 +40,48 @@
 			})
 		},
 		methods:{
+			subMsg(e){
+				let that =this;
+				if(!this.sessionKey) return uni.showToast({
+					title:'请先完成授权!',
+					icon:'none'
+				})
+				if(this.listen_num=='') return uni.showToast({
+					title:'证件号不能为空',
+					icon:'none'
+				})
+				uni.requestSubscribeMessage({
+					tmplIds: ['AfhvatJqhsic7d-uTdLQ7fXmbHuBAU7tp0NgK1nXhAo'],
+					success(res){
+						that.$api.listen({
+							sessionKey:that.sessionKey,
+							lisType:that.cardtype,
+							lisNum:that.listen_num
+						}).then(res=>{
+							console.log(res)
+							if(res.code=='1024'){
+								uni.showToast({
+									title:'信息提交成功,正在为您监听中...',
+									icon:'none'
+								})
+							}else{
+								uni.showToast({
+									title:res.msg,
+									icon:'none'
+								})
+								let id=res.cards[0].id
+								uni.navigateTo({
+									url:'/pages/foundCard/foundCard?id='+id
+								})
+							}
+							this.listen_num='';
+						})
+					},
+					fail(err){
+						console.log(err)
+					}
+				})
+			},
 			move(){
 				let animation=uni.createAnimation({
 					duration:500,
@@ -50,41 +92,6 @@
 			},
 			sendCardType(type){
 				this.$store.commit('getCardType',type)
-			},
-			formSubmit(e){
-				let that=this;
-				if(!this.sessionKey) return uni.showToast({
-					title:'请先完成授权!',
-					icon:'none'
-				})
-				let formId=e.detail.formId;
-				if(this.listen_num=='') return uni.showToast({
-					title:'不能为空',
-					icon:'none'
-				})
-				this.$api.listen({
-					sessionKey:this.sessionKey,
-					formId:formId,
-					lisType:this.cardtype,
-					lisNum:this.listen_num
-				}).then(res=>{
-					if(res.code=='1024'){
-						uni.showToast({
-							title:'信息提交成功,正在为您监听中...',
-							icon:'none'
-						})
-					}else{
-						uni.showToast({
-							title:res.msg,
-							icon:'none'
-						})
-						let id=res.cards[0].id
-						uni.navigateTo({
-							url:'/pages/foundCard/foundCard?id='+id
-						})
-					}
-					this.listen_num='';
-				})
 			}
 		},
 		onShow(){
@@ -95,12 +102,18 @@
 		}
 	}
 </script>
+<style>
+	page{
+		background: #F1F1F1;
+	}
+</style>
 <style scoped>
 	.listening{
-		padding:0 10px;
+		margin-top:15px;
+		background-color: #fff;
+		padding:20px;
 	}
 	.listen{
-		font-size: 14px;
 		padding-left:5px;
 	}
 	.stuCard_box{
@@ -147,5 +160,31 @@
 	}
 	.card .selected{
 		border: 1px solid #4588aa;
+	}
+	.subcard{
+		background: #fff;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		/* justify-content: center; */
+		align-items: center;
+	}
+	.subcard>view{
+		box-sizing: border-box;
+		padding: 10px 20px;
+		width: 100%;
+		margin: 5px 0;
+	}
+	.subcard .subBtn{
+		box-sizing: border-box;
+		background: #4a94b8;
+		width: 150px;
+		border-radius: 25px;
+		padding: 10px 15px;
+		display: flex;
+		justify-content: center;
+	}
+	.subcard text{
+		color: #5ba095;
 	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="bgwhite">
 		<view class="card">
 			<view class="stucard" 
 				:class="cardtype==='stuCard'?'selected':''"
@@ -166,11 +166,15 @@
 </script>
 
 <style scoped>
+	.bgwhite{
+		background-color: #fff;
+	}
 	.card{
 		height: 40px;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
-		padding:0 50px;
+		padding:10px 50px;
 		margin:20px 0;
 	}
 	.card view{

@@ -6,8 +6,7 @@ page{
 
 .about.data-v-ae07102c{
 	padding: 5px 10px;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .about button.data-v-ae07102c{
 	margin: 5px 0;
@@ -21,11 +20,9 @@ page{
 	width: 100%;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 	margin-bottom: 20px;
 }
@@ -44,7 +41,6 @@ page{
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
 	        flex-direction: column;
 	padding: 30rpx;
 }

@@ -1,7 +1,6 @@
 
 page{
-	background: -webkit-gradient(linear,left top, left bottom,from(#4588aa),to(#57bbae));
-	background: -o-linear-gradient(top,#4588aa,#57bbae);
+	background: -webkit-linear-gradient(top,#4588aa,#57bbae);
 	background: linear-gradient(top,#4588aa,#57bbae);
 }
 
@@ -77,28 +76,23 @@ page{
 .login .login-box.data-v-cd76c2bc{
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
 	        flex-direction: column;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	    -ms-flex-align: center;
 	        align-items: center;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 	color: #fff;
 	text-align: center;
 	line-height: 80px;
 	margin-top:50px;
 	border-radius: 10px;
-	-webkit-box-shadow: 0px 0px 5px #8ff1ee;
-	        box-shadow: 0px 0px 5px #8ff1ee;
+	box-shadow: 0px 0px 5px #8ff1ee;
 	padding:10px 20px;
 }
 .login .stuNum input.data-v-cd76c2bc{

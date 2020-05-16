@@ -3,20 +3,24 @@
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item v-for="(item,index) in image" :key="index">
 				<view class="swiper-item" @tap="getImage(index)">
-					<image :src="item" mode="aspectFill"></image>
+					<image :src="'https://www.gongsir.club:8081'+item.imgLink" mode="aspectFill"></image>
 				</view>
 			</swiper-item>
 		</swiper>
 	</view>
 </template>
 <script>
+	import { mapState } from 'vuex'
 	export default{
 		data(){
 			return{
-				image:[
-					'../../static/banner/banners.jpg'
-				]
+				image:[]
 			}
+		},
+		computed:{
+			...mapState({
+				sessionKey:state=>state.sessionKey
+			})
 		},
 		methods:{
 			getImage(index){
@@ -24,7 +28,18 @@
 					current:index,
 					urls:this.image
 				})
+			},
+			getBanners(){
+				let that=this;
+				this.$api.images({
+					sessionKey:that.sessionKey
+				}).then(res=>{
+					that.image=res.images;
+				})
 			}
+		},
+		created(){
+			this.getBanners();
 		}
 	}
 </script>

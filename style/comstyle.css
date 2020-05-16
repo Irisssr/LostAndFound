@@ -3,7 +3,7 @@
 	padding: 0 10px;
 }
 .pubMessage{
-	--boxshadow: 2px 2px 5px #ccc;
+	--boxshadow: 1px -1px 8px #ccc;
 	--padding:4px;
 	width: 100%;
 	overflow: hidden;
@@ -13,6 +13,7 @@
 .pubMessage .msg_info,
 .pubMessage .corMethod{
 	margin:10px 0;
+	border-radius:5px;
 	box-shadow: var(--boxshadow);
 	padding: var(--padding);
 }
@@ -20,6 +21,9 @@
 	padding-left:10px;
 	font-size: 16px;
 	padding: 5px;
+}
+.pubMessage .msg_title{
+	border-bottom: 1px solid #ccc;
 }
 .pubMessage .msg_info textarea{
 	font-size: 16px;

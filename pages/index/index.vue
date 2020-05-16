@@ -200,6 +200,7 @@
 			}
 		},
 		onPullDownRefresh(){
+			this.resnotice=true;
 			if(this.refresh){
 				this.page=1;
 				this.getDataList();

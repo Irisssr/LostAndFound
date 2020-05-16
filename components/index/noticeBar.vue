@@ -4,30 +4,45 @@
 		<swiper vertical="true" autoplay="false" duration="500" interval="4000">
 			<swiper-item v-for="(item,index) in text"
 				:key="index">
-				<view @tap="showText(item)">{{ item}}</view>
+				<view @tap="showText(item)">{{ item.context}}</view>
 			</swiper-item>
 		</swiper>
 	</view>
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
 		data(){
 			return{
-				text:[
-					'西柚失物招领小程序正式上线了!欢迎各位同学使用~',
-					'有任何问题可以向我们反馈,感谢你们的支持',
-				]
+				text:[]
 			}
+		},
+		computed:{
+			...mapState({
+				sessionKey:state=>state.sessionKey
+			})
 		},
 		methods:{
 			showText(e){
 				uni.showModal({
 					title:'公告',
-					content:e,
+					content:e.context,
 					showCancel:false
 				})
 			},
+			getNotices(){
+				let that=this;
+				this.$api.notices({
+					sessionKey:that.sessionKey
+				})
+				.then(res=>{
+					that.text=res.notices;
+				})
+			}
+		},
+		created(){
+			this.getNotices();
 		}
 	}
 </script>

@@ -77,7 +77,6 @@
 							headImg:user.avatarUrl,
 							app:'wx'
 						}).then(res=>{
-							console.log(res)
 							uni.showToast({
 								title:res.msg,
 								icon:'none'

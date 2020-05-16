@@ -1,39 +1,6 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.bgwhite.data-v-6d4b4af4{		background-color: #fff;
+}
 /* 分类 */
 .classify.data-v-6d4b4af4{
 		height: 60px;
@@ -46,34 +13,27 @@
 		height: 100%;
 		display: -webkit-box;
 		display: -webkit-flex;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-box-pack: justify;
 		-webkit-justify-content: space-between;
-		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 		-webkit-box-align:start;
 		-webkit-align-items:flex-start;
-		    -ms-flex-align:start;
 		        align-items:flex-start;
 }
 .classify ._ul ._li.data-v-6d4b4af4{
 		display: -webkit-box;
 		display: -webkit-flex;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		-webkit-flex-direction: column;
-		    -ms-flex-direction: column;
 		        flex-direction: column;
 		-webkit-box-pack:justify;
 		-webkit-justify-content:space-between;
-		    -ms-flex-pack:justify;
 		        justify-content:space-between;
 		-webkit-box-align: center;
 		-webkit-align-items: center;
-		    -ms-flex-align: center;
 		        align-items: center;
 		margin:0 10px;
 		font-size: 14px;

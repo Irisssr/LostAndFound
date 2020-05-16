@@ -3,8 +3,7 @@
 	height: 150px;
 	width: 100%;
 	position: relative;
-	background: -webkit-gradient(linear,left top, left bottom,from(#4588aa),to(#57bbae));
-	background: -o-linear-gradient(top,#4588aa,#57bbae);
+	background: -webkit-linear-gradient(top,#4588aa,#57bbae);
 	background: linear-gradient(top,#4588aa,#57bbae);
 }
 .user_info .user_content.data-v-1648419c{
@@ -16,20 +15,16 @@
 	width: 100%;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
 	        flex-direction: column;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	    -ms-flex-align: center;
 	        align-items: center;
 }
 .user_avatar.data-v-1648419c{
@@ -37,8 +32,7 @@
 	height: 80px;
 	border-radius: 50%;
 	border:3px solid #fff;
-	-webkit-box-shadow: 0px 0px 8px #8ff1ee;
-	        box-shadow: 0px 0px 8px #8ff1ee;
+	box-shadow: 0px 0px 8px #8ff1ee;
 }
 .user_avatar ._img.data-v-1648419c{
 	width: 100%;

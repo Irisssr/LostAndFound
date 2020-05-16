@@ -40,6 +40,7 @@
 
 <style scoped>
 	.publish_header{
+		background-color: #fff;
 		--topH:50px;
 		width: 100%;
 		height: var(--topH);

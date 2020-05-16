@@ -17,6 +17,8 @@ apis.isSession=()=>{
 apis.onlogin=(params)=>http.request('/user/login','POST',params);
 apis.getData=(params)=>http.request('/good/all','GET',params);
 apis.bindNum=(params)=>http.request('/user/update','POST',params);
+apis.images=(params)=>http.request('/index/images','GET',params);
+apis.notices=(params)=>http.request('/index/notices','GET',params);
 
 // publish
 apis.pubCard=(params)=>http.request('/card/add','POST',params);

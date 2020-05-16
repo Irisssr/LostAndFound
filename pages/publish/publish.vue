@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<tabarHead :title='titleHead'></tabarHead>
-		<view class="pubbox">
+		<view class="pubbox bgwhite">
 			<!-- 标题and详情and图片 -->
 			<view class="pubMessage">
 				<!-- 信息标题 -->
@@ -204,3 +204,13 @@
 	}
 </script>
 
+<style>
+	page{
+		background-color: #f1f1f1;
+	}
+</style>
+<style scoped>
+	.bgwhite{
+		background-color: #fff;
+	}
+</style>
