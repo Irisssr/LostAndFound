@@ -59,7 +59,7 @@
 			}
 		},
 		created() {
-			this.status=this.userItem.goodStatus
+			this.status=this.userItem.goodStatus;
 		}
 	}
 </script>

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "学生卡",
+  "navigationBarTitleText": "证件发布",
   "navigationBarBackgroundColor": "#4588aa",
   "usingComponents": {
     "title-head": "/components/tabarHead",

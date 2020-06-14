@@ -61,7 +61,7 @@
 					limit:this.limit,
 					sessionKey:this.sessionKey
 				}).then(res=>{
-					this.list=res.goods
+					this.list=res.goods;
 					uni.hideLoading()
 				})
 			},
@@ -79,12 +79,11 @@
 			}
 		},
 		onLoad(e){
-			this.$api.isLogin()
-			this.value=e.keyword
-			this.searchKey()
+			this.value=e.keyword;
+			this.searchKey();
+			this.$api.isLogin();					
 		},
-		onShow() {
-			console.log(this.sessionKey)
+		onShow(e) {
 			if(!this.sessionKey){
 				this.$api.isSession()
 			}

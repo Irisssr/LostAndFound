@@ -36,11 +36,13 @@
 			<view class="text">详情:&nbsp;
 			 {{dataInfo.goodTexts}}</view>
 			<view class="relation">联系:&nbsp;{{relate}}
-				<view class="cutbtn" @tap="cuttext" v-if="reltype==='qq'||reltype==='tel'">
-					<span class="iconfont" v-if="reltype==='qq'">&#xe606;</span>
-					<span class="iconfont" v-if="reltype==='tel'">&#xe603;</span>
+				<view class="cutbtn" @tap="cuttext" v-if="reltype==='联系QQ'||reltype==='联系电话'">
+					<span class="iconfont" v-if="reltype==='联系QQ'">&#xe606;</span>
+					<span class="iconfont" v-if="reltype==='联系电话'">&#xe603;</span>
 					<span>复制</span>
 				</view>
+				<!-- 指定地点领取 -->
+				
 			</view>
 		</view>
 		<view class="imgList">
@@ -245,17 +247,29 @@
 				})
 			},
 			isData(){
-				if(this.status==='no'){
-					this.dataInfo=this.goodsList.find(item=>item.id==this.id);
-					this.app=this.dataInfo.user.userApp;
+				let that = this;
+				if(that.status == 'no'){
+					that.dataInfo=that.goodsList.find(item=>item.id==this.id);
+					that.app=that.dataInfo.user.userApp;
+					console.log(that.goodsList)
+					let str=that.dataInfo.relation.split(":");
+					that.relate=str[1];
+					that.reltype=str[0];
+					console.log(that.dataInfo)
+					that.image.push(config.imgUrl+that.dataInfo.goodImage)
 				}else{
-					this.dataInfo=this.myMsgList.find(item=>item.id==this.id);
-					this.app=this.dataInfo.user.userApp;
+					that.dataInfo=that.myMsgList.find(item=>item.id==this.id);
+					that.app=that.dataInfo.user.userApp;
+					let str=that.dataInfo.relation.split(":");
+					that.relate=str[1];
+					that.reltype=str[0];
+					that.image.push(config.imgUrl+that.dataInfo.goodImage)
 				}
-				let str=this.dataInfo.relation.split(":");
-				this.relate=str[1];
-				this.reltype=str[0];
-				this.image.push(config.imgUrl+this.dataInfo.goodImage)
+				// console.log(that.dataInfo);
+				// let str=this.dataInfo.relation.split(":");
+				// this.relate=str[1];
+				// this.reltype=str[0];
+				// this.image.push(config.imgUrl+this.dataInfo.goodImage)
 			}
 		},
 		onLoad(e){
@@ -265,7 +279,6 @@
 			this.ismy=e.ismy;
 		},
 		onShow() {
-			console.log(this.sessionKey)
 			if(!this.sessionKey){
 				this.$api.isSession()
 			}

@@ -34,7 +34,7 @@
 					})
 				}else{
 					uni.navigateTo({
-						url:'../filterItem/filterItem?keyword='+this.value
+						url:'../filterItem/filterItem?keyword='+this.value,
 					})
 					this.value=''
 				}

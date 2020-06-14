@@ -171,7 +171,6 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     FoundCard: FoundCard },
 
   onShow: function onShow() {
-    console.log(this.sessionKey);
     if (!this.sessionKey) {
       this.$api.isSession();
     }

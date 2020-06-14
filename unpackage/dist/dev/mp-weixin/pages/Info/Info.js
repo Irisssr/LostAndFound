@@ -194,6 +194,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _vuex = __webpack_require__(/*! vuex */ 16);
 var _util = _interopRequireDefault(__webpack_require__(/*! @/common/util.js */ 25));
 var _config = _interopRequireDefault(__webpack_require__(/*! @/request/config.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
@@ -380,17 +382,29 @@ var _config = _interopRequireDefault(__webpack_require__(/*! @/request/config.js
 
     },
     isData: function isData() {var _this4 = this;
-      if (this.status === 'no') {
-        this.dataInfo = this.goodsList.find(function (item) {return item.id == _this4.id;});
-        this.app = this.dataInfo.user.userApp;
+      var that = this;
+      if (that.status == 'no') {
+        that.dataInfo = that.goodsList.find(function (item) {return item.id == _this4.id;});
+        that.app = that.dataInfo.user.userApp;
+        console.log(that.goodsList);
+        var str = that.dataInfo.relation.split(":");
+        that.relate = str[1];
+        that.reltype = str[0];
+        console.log(that.dataInfo);
+        that.image.push(_config.default.imgUrl + that.dataInfo.goodImage);
       } else {
-        this.dataInfo = this.myMsgList.find(function (item) {return item.id == _this4.id;});
-        this.app = this.dataInfo.user.userApp;
+        that.dataInfo = that.myMsgList.find(function (item) {return item.id == _this4.id;});
+        that.app = that.dataInfo.user.userApp;
+        var _str = that.dataInfo.relation.split(":");
+        that.relate = _str[1];
+        that.reltype = _str[0];
+        that.image.push(_config.default.imgUrl + that.dataInfo.goodImage);
       }
-      var str = this.dataInfo.relation.split(":");
-      this.relate = str[1];
-      this.reltype = str[0];
-      this.image.push(_config.default.imgUrl + this.dataInfo.goodImage);
+      // console.log(that.dataInfo);
+      // let str=this.dataInfo.relation.split(":");
+      // this.relate=str[1];
+      // this.reltype=str[0];
+      // this.image.push(config.imgUrl+this.dataInfo.goodImage)
     } },
 
   onLoad: function onLoad(e) {
@@ -400,7 +414,6 @@ var _config = _interopRequireDefault(__webpack_require__(/*! @/request/config.js
     this.ismy = e.ismy;
   },
   onShow: function onShow() {
-    console.log(this.sessionKey);
     if (!this.sessionKey) {
       this.$api.isSession();
     }

@@ -214,12 +214,11 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     } },
 
   onLoad: function onLoad(e) {
-    this.$api.isLogin();
     this.value = e.keyword;
     this.searchKey();
+    this.$api.isLogin();
   },
-  onShow: function onShow() {
-    console.log(this.sessionKey);
+  onShow: function onShow(e) {
     if (!this.sessionKey) {
       this.$api.isSession();
     }

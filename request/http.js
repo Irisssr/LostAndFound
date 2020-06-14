@@ -10,7 +10,7 @@ http.request=(url,method,data)=>{
 		data:data,
 		dataType:'json'
 	}).then(res=>{
-		if(res[1].statusCode&&res[1].statusCode==200){
+		if(res[1].statusCode && res[1].statusCode==200){
 			return res[1].data
 		}else if(res[1].data.code==401){
 			uni.showToast({
@@ -26,10 +26,8 @@ http.request=(url,method,data)=>{
 	}).catch(error=>{
 		switch(error.code){
 			case 401:
-				console.log(error)
 				break;
 			default:
-				console.log(error)
 				return Promise.reject();
 				break;
 		}
@@ -60,7 +58,6 @@ http.upload=(url,file,data)=>{
 	}).catch(error=>{
 		switch(error.code){
 			case 401:
-			console.log(error);
 				break;
 			default:
 				uni.showToast({
