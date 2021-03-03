@@ -1,29 +1,29 @@
 
-.cardInfo.data-v-de2c1218{
+.cardInfo.data-v-72b8f82c{
 	padding:0 10px;
 }
-.cardInfo .card_content view.data-v-de2c1218{
+.cardInfo .card_content view.data-v-72b8f82c{
 	margin:30px 0;
 }
-.infoBtn button.data-v-de2c1218{
+.infoBtn button.data-v-72b8f82c{
 	background: #fff;
 	box-shadow: 0px 0px 5px #ccc;
 	margin:40px 0;
 	color:#346680;
 }
-.infoBtn button.warn.data-v-de2c1218{
+.infoBtn button.warn.data-v-72b8f82c{
 	background: #BF0000;
 	color: #fff;
 }
-.infoBtn button.redwran.data-v-de2c1218{
+.infoBtn button.redwran.data-v-72b8f82c{
 	background: #dd524d;
 	color: #fff;
 }
-.relation.data-v-de2c1218{
+.relation.data-v-72b8f82c{
 	margin-left:20px;
 	position: relative;
 }
-.relation .cutbtn.data-v-de2c1218{
+.relation .cutbtn.data-v-72b8f82c{
 	border-radius: 5px;
 	font-size: 14px;
 	border: 1px solid #4588aa;

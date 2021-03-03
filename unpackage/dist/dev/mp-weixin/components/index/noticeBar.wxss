@@ -1,5 +1,5 @@
 
-.notice.data-v-54fb6beb{
+.notice.data-v-a5e6dc9a{
 	width: 100%;
 	height: 20;
 	display: -webkit-box;
@@ -15,14 +15,14 @@
 	background: #fdfced;
 	color: #fa7a37;
 }
-.notice .ad.data-v-54fb6beb{
+.notice .ad.data-v-a5e6dc9a{
 	font-size: 20px;
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;
 	text-align: center;
 }
-.notice swiper.data-v-54fb6beb{
+.notice swiper.data-v-a5e6dc9a{
 	-webkit-box-flex: 5;
 	-webkit-flex: 5;
 	        flex: 5;
@@ -43,7 +43,7 @@
 	text-overflow: ellipsis;
 	color:#555;
 }
-swiper-item.data-v-54fb6beb{
+swiper-item.data-v-a5e6dc9a{
 	line-height: 20px;
 }
 

@@ -51,7 +51,7 @@
 					icon:'none'
 				})
 				uni.requestSubscribeMessage({
-					tmplIds: ['AfhvatJqhsic7d-uTdLQ7fXmbHuBAU7tp0NgK1nXhAo'],
+					tmplIds: ['BqATFm8I0baZtW6ETtTdePDbmCewBnVGoVDy9deOYkY'],
 					success(res){
 						that.$api.listen({
 							sessionKey:that.sessionKey,

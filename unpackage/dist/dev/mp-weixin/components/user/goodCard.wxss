@@ -5,11 +5,11 @@ page{
 }
 
 
-.mycard.data-v-082259be{
+.mycard.data-v-a75b5cf4{
 	border-radius: 10px;
 	margin: 5px 0;
 }
-.findready.data-v-082259be{
+.findready.data-v-a75b5cf4{
 	padding:5px 2px;
 	border-radius: 5px;
 	border: 1px solid red;

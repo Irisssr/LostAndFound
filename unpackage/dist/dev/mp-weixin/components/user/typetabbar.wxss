@@ -1,5 +1,5 @@
 
-.tabbar.data-v-1fc8eca9{
+.tabbar.data-v-77da1271{
 	margin-top:10px;
 	font-size: 16px;
 	display: -webkit-box;
@@ -10,7 +10,7 @@
 	        justify-content: space-between;
 	padding:5px 0;
 }
-.tabbar .span ._span.data-v-1fc8eca9{
+.tabbar .span ._span.data-v-77da1271{
 	margin:0 15px;
 	border-radius: 8px;
 	border:1px solid #4588aa;
@@ -18,11 +18,11 @@
 	font-size: 16px;
 	color: #4588aa;
 }
-.tabbar .span ._span.select.data-v-1fc8eca9{
+.tabbar .span ._span.select.data-v-77da1271{
 	background: #4588aa;
 	color: #fff;
 }
-.ta.data-v-1fc8eca9{
+.ta.data-v-77da1271{
 	color: #333333;
 	padding-left: 10px;
 }

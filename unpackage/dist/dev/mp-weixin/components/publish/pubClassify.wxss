@@ -53,7 +53,7 @@
 
 
 /* 联系 */
-.corMethod.data-v-d1e83b24{
+.corMethod.data-v-d9f63794{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -64,14 +64,14 @@
 	-webkit-align-items: center;
 	        align-items: center;
 }
-.corMethod ._li.data-v-d1e83b24{
+.corMethod ._li.data-v-d9f63794{
 	margin:0 5px;
 	padding:4px 8px;
 	border-radius: 5px;
 	font-size: 16px;
 	border:1px solid #ccc;
 }
-._li.selected.data-v-d1e83b24{
+._li.selected.data-v-d9f63794{
 	border:1px solid #4588aa;
 }
 

@@ -152,7 +152,7 @@
 				})
 				if(that.imageList.length==0){
 					uni.downloadFile({
-						url:'https://www.gongsir.club:8081/uploadImg/logo.jpg',
+						url:'https://swzl.gongsir.club/api/uploadImg/logo.jpg',
 						success:res=>{
 							this.$api.pubGood(res.tempFilePath,{
 								sessionKey:that.sessionKey,

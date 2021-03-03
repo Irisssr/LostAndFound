@@ -1,5 +1,5 @@
 
-.step.data-v-fd9457c6{
+.step.data-v-212e2036{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -8,7 +8,7 @@
 	-webkit-flex-direction: column;
 	        flex-direction: column;
 }
-.step .step-box.data-v-fd9457c6{
+.step .step-box.data-v-212e2036{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -20,23 +20,23 @@
 	        align-items: center;
 	margin:10px 0;
 }
-.step .step-card.data-v-fd9457c6{
+.step .step-card.data-v-212e2036{
 	width: 10px;
 	margin-right: 40px;
 }
-.step .step-circle.data-v-fd9457c6{
+.step .step-circle.data-v-212e2036{
 	width: 10px;
 	height: 10px;
 	background: #007AFF;
 	border-radius: 50%;
 }
-.step .step-line.data-v-fd9457c6{
+.step .step-line.data-v-212e2036{
 	width: 1.2px;
 	height: 50px;
 	background: #C8C7CC;
 	margin:5px auto;
 }
-.step .step-content.data-v-fd9457c6{
+.step .step-content.data-v-212e2036{
 	background: #EBEBEB;
 	width: 100%;
 	border-radius: 4px;

@@ -116,7 +116,7 @@
 					title:'图片生成中...'
 				})
 				uni.downloadFile({
-					url:'https://www.gongsir.club:8081'+this.dataInfo.goodImage,
+					url:'https://swzl.gongsir.club/api'+this.dataInfo.goodImage,
 					header:{
 						'content-type':'application/x-www-form-urlencoded'
 					},

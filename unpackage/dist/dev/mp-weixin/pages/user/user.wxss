@@ -8,7 +8,7 @@
 	background: rgba(0,0,0,0.4);
 	z-index: 99;
 }
-.bindingStu{/*绑定几个学号弹框 */
+.bindingStu{/*绑定几个学号弹框 */
 	position: fixed;
 	width: 300px;
 	height: 200px;
@@ -34,7 +34,7 @@
 	border-bottom: 1px solid #ccc;
 	font-size: 18px;
 }
-.userList{/*列表 */
+.userList{/*列表 */
 	opacity: 0;
 	-webkit-transform: translateY(90);
 	        transform: translateY(90);

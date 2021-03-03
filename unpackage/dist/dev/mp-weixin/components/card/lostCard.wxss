@@ -1,8 +1,8 @@
 
-.bgwhite.data-v-1c511c00{
+.bgwhite.data-v-d3f12c70{
 	background-color: #fff;
 }
-.card.data-v-1c511c00{
+.card.data-v-d3f12c70{
 	height: 40px;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -16,7 +16,7 @@
 	padding:10px 50px;
 	margin:20px 0;
 }
-.card view.data-v-1c511c00{
+.card view.data-v-d3f12c70{
 	width: 100px;
 	height: 100%;
 	text-align: center;
@@ -24,7 +24,7 @@
 	border-radius: 20px;
 	border:1px solid #ccc;
 }
-.card .selected.data-v-1c511c00{
+.card .selected.data-v-d3f12c70{
 	border: 1px solid #4588aa;
 }
 

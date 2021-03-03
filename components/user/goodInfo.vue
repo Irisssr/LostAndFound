@@ -1,7 +1,7 @@
 <template>
 	<view class="mypublish" @tap.stop="toInfo({id:goodMsg.id,status:goodMsg.goodStatus})">
 		<view class="myleft">
-			<image :src="'https://www.gongsir.club:8081/'+goodMsg.goodImage" mode="aspectFill"></image>
+			<image :src="'https://swzl.gongsir.club/api'+goodMsg.goodImage" mode="aspectFill"></image>
 			<view class="findtip" v-if="goodMsg.goodStatus!=='no'">已被认领</view>
 		</view>
 		<view class="myright">

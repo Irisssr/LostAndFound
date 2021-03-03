@@ -5,7 +5,7 @@ page{
 }
 
 
-.mypublish.data-v-133b445c{
+.mypublish.data-v-912987b8{
 	font-size: 16px;
 	width: 100%;
 	display: -webkit-box;
@@ -26,17 +26,17 @@ page{
 	padding:2px 4px;
 	position: relative;
 }
-.myleft.data-v-133b445c{
+.myleft.data-v-912987b8{
 	width: 90px;
 	height: 90px;
 	border-radius: 5px;
 	position: relative;
 }
-.myleft image.data-v-133b445c{
+.myleft image.data-v-912987b8{
 	width: 100%;
 	height: 100%;
 }
-.myleft .findtip.data-v-133b445c{
+.myleft .findtip.data-v-912987b8{
 	position: absolute;
 	top:0;
 	left:0;
@@ -50,14 +50,14 @@ page{
 	-webkit-transform: rotate(45deg);
 	        transform: rotate(45deg);
 }
-.myright.data-v-133b445c{
+.myright.data-v-912987b8{
 	width: 70%;
 	margin-left:10px;
 	height: 100%;
 	overflow: hidden;
 	font-size: 16px;
 }
-.myright .mytitle.data-v-133b445c{
+.myright .mytitle.data-v-912987b8{
 	line-height: 40px;
 	height: 40px;
 	overflow: hidden;
@@ -73,7 +73,7 @@ page{
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
 }
-.myright .mybtn.data-v-133b445c{
+.myright .mybtn.data-v-912987b8{
 	z-index: 22;
 	width: 100%;
 	height: 40px;
@@ -89,7 +89,7 @@ page{
 	font-size: 14px;
 	color: #333333;
 }
-.myright .mytext.data-v-133b445c{
+.myright .mytext.data-v-912987b8{
 	overflow: hidden;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -101,17 +101,17 @@ page{
 	overflow: hidden;
 	padding:10px 5px;
 }
-.mybtn .delete.data-v-133b445c{
+.mybtn .delete.data-v-912987b8{
 	margin:0 10px;
 	border:1px solid #4588aa;
 	border-radius: 5px;
 	padding: 2px 8px;
 }
-.myright .mytime.data-v-133b445c{
+.myright .mytime.data-v-912987b8{
 	font-size: 12px;
 	color:#ccc;
 }
-.myright .goodType.data-v-133b445c{
+.myright .goodType.data-v-912987b8{
 	position: absolute;
 	top:0;
 	right:0;
@@ -121,13 +121,13 @@ page{
 	color:#fff;
 	padding:4px 10px;
 }
-.type-lost.data-v-133b445c{
+.type-lost.data-v-912987b8{
 	background: #DD524D;
 }
-.type-found.data-v-133b445c{
+.type-found.data-v-912987b8{
 	background: #FF8000;
 }
-.nonemsg.data-v-133b445c{
+.nonemsg.data-v-912987b8{
 	margin-top:80px;
 	color: #C0C0C0;
 	text-align: center;

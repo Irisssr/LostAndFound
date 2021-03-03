@@ -5,12 +5,12 @@ page{
 }
 
 
-.index.data-v-72677498{
+.index.data-v-57280228{
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
-.totop.data-v-72677498{/*回到顶部 */
+.totop.data-v-57280228{/*回到顶部 */
 	width: 50px;
 	height: 50px;
 	background:#4588aa;
@@ -27,10 +27,10 @@ page{
 	color:#FFFFFF;
 	z-index: 2222;
 }
-.content.data-v-72677498{
+.content.data-v-57280228{
 	padding:5px;
 }
-.loadingText.data-v-72677498{
+.loadingText.data-v-57280228{
 	width: 100%;
 	text-align: center;
 	font-size: 14px;

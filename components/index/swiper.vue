@@ -3,7 +3,7 @@
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item v-for="(item,index) in image" :key="index">
 				<view class="swiper-item" @tap="getImage(index)">
-					<image :src="'https://www.gongsir.club:8081'+item.imgLink" mode="aspectFill"></image>
+					<image :src="'https://swzl.gongsir.club/api'+item.imgLink" mode="aspectFill"></image>
 				</view>
 			</swiper-item>
 		</swiper>

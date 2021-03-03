@@ -5,21 +5,21 @@ page{
 }
 
 
-.login.data-v-cd76c2bc{
+.login.data-v-b237504c{
 	padding: 0 30px;
 	position: relative;
 }
-.logo-move.data-v-cd76c2bc{
+.logo-move.data-v-b237504c{
 	width: 100px;
 	height: 100px;
 	margin: 20px auto;
-	-webkit-animation: logomove-data-v-cd76c2bc 5s ease-in-out infinite;
-	        animation: logomove-data-v-cd76c2bc 5s ease-in-out infinite;
+	-webkit-animation: logomove-data-v-b237504c 5s ease-in-out infinite;
+	        animation: logomove-data-v-b237504c 5s ease-in-out infinite;
 	-webkit-perspective: 1000px;
 	        perspective: 1000px;
 	border-radius: 50%;
 }
-@-webkit-keyframes logomove-data-v-cd76c2bc{
+@-webkit-keyframes logomove-data-v-b237504c{
 0%{
 		-webkit-transform: rotateY(0deg);
 		        transform: rotateY(0deg);
@@ -33,7 +33,7 @@ page{
 		        transform: rotateY(0deg);
 }
 }
-@keyframes logomove-data-v-cd76c2bc{
+@keyframes logomove-data-v-b237504c{
 0%{
 		-webkit-transform: rotateY(0deg);
 		        transform: rotateY(0deg);
@@ -47,17 +47,17 @@ page{
 		        transform: rotateY(0deg);
 }
 }
-.logo-move image.data-v-cd76c2bc{
+.logo-move image.data-v-b237504c{
 	width: 100%;
 	height: 100%;
 }
-.posre.data-v-cd76c2bc{
+.posre.data-v-b237504c{
 	-webkit-perspective: 1000px;
 	        perspective: 1000px;
 	position: relative;
 	color: #fff;
 }
-.posab1.data-v-cd76c2bc,.posab2.data-v-cd76c2bc{
+.posab1.data-v-b237504c,.posab2.data-v-b237504c{
 	position: absolute;
 	width: 100%;
 	top:0;
@@ -68,12 +68,12 @@ page{
 	        backface-visibility: hidden;
 	z-index: 1;
 }
-.posab2.data-v-cd76c2bc{
+.posab2.data-v-b237504c{
 	z-index: 2;
 	-webkit-transform: rotateY(-180deg);
 	        transform: rotateY(-180deg);
 }
-.login .login-box.data-v-cd76c2bc{
+.login .login-box.data-v-b237504c{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -95,11 +95,11 @@ page{
 	box-shadow: 0px 0px 5px #8ff1ee;
 	padding:10px 20px;
 }
-.login .stuNum input.data-v-cd76c2bc{
+.login .stuNum input.data-v-b237504c{
 	border-bottom:1px solid #fff;
 	color: #fff;
 }
-.login button.data-v-cd76c2bc{
+.login button.data-v-b237504c{
 	margin-top:50px;
 	color: #000;
 }
