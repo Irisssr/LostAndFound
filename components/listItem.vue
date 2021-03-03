@@ -2,7 +2,7 @@
 	<view class="content-box"
 		@tap="toInfo(userItem.id)">
 		<view class="content-img">
-			<image mode="aspectFit" :src="'https://www.gongsir.club:8081/'+userItem.goodImage" alt=""></image>
+			<image mode="aspectFit" :src="'https://swzl.gongsir.club/api/'+userItem.goodImage" alt=""></image>
 		</view>
 		<view class="content-text">
 			<view class="text-top">

@@ -1,1 +1,0 @@
-<view><tabar-head vue-id="1" title="{{titleHead}}" bind:__l="__l"></tabar-head><block wx:if="{{msgType=='lost'}}"><view><publish-lost vue-id="2" bind:__l="__l"></publish-lost></view></block><block wx:if="{{msgType=='found'}}"><view><publish-found vue-id="3" bind:__l="__l"></publish-found></view></block></view>
