@@ -1,1 +1,0 @@
-<view class="user_info data-v-75b56f1e"><view class="user_content data-v-75b56f1e"><view class="user_avatar data-v-75b56f1e"><image src="{{userhead.user.userHead}}" class="_img data-v-75b56f1e"></image></view><view class="user_name data-v-75b56f1e">{{userhead.user.userName}}</view></view></view>

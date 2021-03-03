@@ -1,1 +1,0 @@
-<view class="swiper data-v-47b2d8d4"><swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" class="data-v-47b2d8d4"><swiper-item class="data-v-47b2d8d4"><view class="swiper-item data-v-47b2d8d4"><image src="../../static/banner/banners.jpg" mode="aspectFill" class="data-v-47b2d8d4"></image></view></swiper-item></swiper></view>

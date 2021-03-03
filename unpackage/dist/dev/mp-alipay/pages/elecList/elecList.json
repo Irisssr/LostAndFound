@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "电子用品类",
-  "pullRefresh": true,
-  "titleBarColor": "#4588aa",
-  "usingComponents": {
-    "list-item": "/components/listItem",
-    "search": "/components/index/search"
-  }
-}
